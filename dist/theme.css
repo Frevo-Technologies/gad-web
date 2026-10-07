@@ -170,3 +170,14 @@ body[data-route='/services/facility-management'] .inner-hero .eyebrow{color:#dfc
 @media(max-width:1050px){.header-inner{height:80px}#main-nav{top:80px;max-height:calc(100dvh - 80px);overflow-y:auto;align-items:stretch;padding:20px 28px;background:#f8f6ef;gap:5px}#main-nav>a:not(.button),.nav-trigger{width:100%;font-size:14px;text-align:left;padding:13px 16px}.nav-trigger{justify-content:space-between}.nav-group{width:100%}.nav-panel{position:static;width:100%;margin-block:6px 12px;box-shadow:none;padding:14px;border-radius:8px}.nav-panel a{font-size:13px;padding:12px}.nav-panel-label{margin-top:5px}#main-nav>.button{margin:12px 0 0}.menu-toggle{border-radius:24px;padding:10px 18px}.street-map-heading{display:block}}
 @media(max-width:760px){.street-map-panel{padding:18px}.office-street-map{height:350px}.street-map-heading h3{font-size:27px}.street-map-heading .text-link{margin-bottom:15px}.office-map-layout{gap:10px}}
 .nav-trigger span{display:block;width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin:0 3px 3px 2px}.nav-trigger[aria-expanded=true] span{transform:rotate(225deg);margin-bottom:-3px}
+/* Contrasting navigation */
+.utility{background:#eee9dd;color:#334752}.utility-line{background:#a8afa9}
+.site-header{background:#234452;border-bottom:1px solid #58717b;box-shadow:0 5px 24px #10232e24}
+.site-header .brand-text{color:#fffaf0}.site-header .brand-text small{color:#e4c991}.site-header .logo-crop{background:white;border-radius:4px}
+#main-nav>a:not(.button),.nav-trigger{color:#fffaf0}
+#main-nav>a[aria-current]:not(.button),.nav-trigger.is-current,.nav-trigger[aria-expanded=true]{background:#e6cd9f;color:#193541}
+#main-nav>a:not(.button):hover,.nav-trigger:hover{background:#365b6a;color:#fffaf0}
+#main-nav>.button{background:#823b45;border-color:#c9848d;color:white}#main-nav>.button:hover{background:#682e37}
+.site-header .menu-toggle{background:#365b6a;color:#fffaf0;border:1px solid #8ca0a5}
+.site-header :focus-visible{outline-color:#e6cd9f}.nav-panel :focus-visible{outline-color:#823b45}
+@media(max-width:1050px){#main-nav{background:#234452;border-top:1px solid #58717b}}
