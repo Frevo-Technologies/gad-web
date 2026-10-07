@@ -181,3 +181,5 @@ body[data-route='/services/facility-management'] .inner-hero .eyebrow{color:#dfc
 .site-header .menu-toggle{background:#365b6a;color:#fffaf0;border:1px solid #8ca0a5}
 .site-header :focus-visible{outline-color:#e6cd9f}.nav-panel :focus-visible{outline-color:#823b45}
 @media(max-width:1050px){#main-nav{background:#234452;border-top:1px solid #58717b}}
+.office-tabs{grid-template-columns:repeat(2,minmax(0,1fr));max-width:680px;margin-bottom:0}.office-tabs button{border-radius:8px;padding:18px 22px}.office-tabs button[aria-pressed=true]{background:var(--navy);color:#fffaf0;border-color:var(--navy);box-shadow:inset 4px 0 var(--gold)}.office-map-section .street-map-panel{margin-top:20px}.office-map-section .office-street-map{height:500px}
+@media(max-width:760px){.office-tabs{grid-template-columns:1fr 1fr;gap:10px}.office-tabs button{display:block;padding:14px}.office-tabs button>span{display:block;margin-top:4px}.office-map-section .office-street-map{height:400px}}
