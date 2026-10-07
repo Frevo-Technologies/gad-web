@@ -17,14 +17,22 @@
   });
   document.querySelectorAll('[data-office-map]').forEach(map=>{
     const offices=JSON.parse(map.querySelector('.office-map-data').textContent),pins=[...map.querySelectorAll('.map-pin')];
+    let selected=null;
     const hide=()=>{pins.forEach(pin=>{pin.setAttribute('aria-expanded','false');map.querySelector('#'+pin.getAttribute('aria-controls')).hidden=true;});};
-    function show(id){hide();const office=offices.find(o=>o.id===id),pin=pins.find(p=>p.dataset.office===id);pin.setAttribute('aria-expanded','true');map.querySelector('#'+pin.getAttribute('aria-controls')).hidden=false;const panel=map.querySelector('.office-selection');panel.replaceChildren();const tag=document.createElement('span');tag.className='eyebrow';tag.textContent=office.type;const heading=document.createElement('h3');heading.textContent=office.city;const address=document.createElement('p');address.textContent=office.address;const link=document.createElement('a');link.className='text-link';link.textContent='Get directions ↗';link.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(office.address);link.target='_blank';link.rel='noopener noreferrer';panel.append(tag,heading,address,link);map.querySelectorAll('[data-office-select]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.officeSelect===id)));}
-    pins.forEach(pin=>{pin.addEventListener('mouseenter',()=>show(pin.dataset.office));pin.addEventListener('focus',()=>show(pin.dataset.office));pin.addEventListener('click',()=>show(pin.dataset.office));pin.parentElement.addEventListener('mouseleave',hide);pin.addEventListener('blur',hide);});
+    function show(id){hide();const office=offices.find(o=>o.id===id),pin=pins.find(p=>p.dataset.office===id);pin.setAttribute('aria-expanded','true');map.querySelector('#'+pin.getAttribute('aria-controls')).hidden=false;const panel=map.querySelector('.office-selection');panel.replaceChildren();const tag=document.createElement('span');tag.className='eyebrow';tag.textContent=office.type;const heading=document.createElement('h3');heading.textContent=office.city;const address=document.createElement('p');address.textContent=office.address;const link=document.createElement('a');link.className='text-link';link.textContent='Get directions ↗';link.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(office.address);link.target='_blank';link.rel='noopener noreferrer';panel.append(tag,heading,address,link);if(selected!==id){selected=id;const frame=map.querySelector('.office-street-map');frame.src='https://maps.google.com/maps?q='+encodeURIComponent(office.address)+'&output=embed';frame.title=office.city+' office street map';map.querySelector('[data-street-title]').textContent=office.city+' \u00b7 '+office.type;map.querySelector('[data-street-address]').textContent=office.address;map.querySelector('[data-street-directions]').href=link.href;}map.querySelectorAll('[data-office-select]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.officeSelect===id)));}
+    pins.forEach(pin=>{pin.addEventListener('mouseenter',()=>show(pin.dataset.office));pin.addEventListener('focus',()=>show(pin.dataset.office));pin.addEventListener('click',()=>show(pin.dataset.office));});
     map.querySelectorAll('[data-office-select]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.officeSelect)));
     document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
+    show(offices[0].id);hide();
   });
   const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('#main-nav');
-  function closeMenu(){nav?.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false');}
+  const navTriggers=[...document.querySelectorAll('.nav-trigger')];
+  function closeDropdowns(){navTriggers.forEach(b=>{b.setAttribute('aria-expanded','false');document.getElementById(b.getAttribute('aria-controls')).hidden=true;});}
+  navTriggers.forEach(button=>button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')==='true';closeDropdowns();if(!open){button.setAttribute('aria-expanded','true');document.getElementById(button.getAttribute('aria-controls')).hidden=false;}}));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){const active=navTriggers.find(b=>b.getAttribute('aria-expanded')==='true');if(active){closeDropdowns();active.focus();e.stopImmediatePropagation();}}});
+  document.addEventListener('click',e=>{if(!e.target.closest('.nav-group'))closeDropdowns();});
+  nav?.addEventListener('focusout',e=>{if(!nav.contains(e.relatedTarget))closeDropdowns();});
+  function closeMenu(){closeDropdowns();nav?.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false');}
   toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));nav.classList.toggle('is-open',!open);});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav?.classList.contains('is-open')){closeMenu();toggle.focus();}});
   document.addEventListener('click',e=>{if(!e.target.closest('.site-header'))closeMenu();});
