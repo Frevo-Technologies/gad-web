@@ -1,4 +1,28 @@
 (() => {
+  const profileDialog=document.querySelector('#profile-dialog');
+  document.querySelectorAll('[data-profile-pending]').forEach(button=>button.addEventListener('click',()=>{profileDialog.querySelector('[data-profile-name]').textContent=button.dataset.profilePending;profileDialog.showModal();}));
+  profileDialog?.addEventListener('click',e=>{if(e.target===profileDialog){const rect=profileDialog.getBoundingClientRect();if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)profileDialog.close();}});
+  document.querySelectorAll('.cert-carousel').forEach(carousel=>{
+    const track=carousel.querySelector('.cert-track'),pause=carousel.querySelector('[data-cert-pause]'),motion=matchMedia('(prefers-reduced-motion: reduce)');let paused=motion.matches,hovered=false,focused=false,visible=false;
+    const update=()=>{pause.textContent=paused?'Resume scrolling':'Pause scrolling';pause.setAttribute('aria-pressed',String(paused));};update();
+    pause.addEventListener('click',()=>{paused=!paused;update();});
+    carousel.querySelector('[data-cert-prev]').addEventListener('click',()=>{paused=true;update();track.scrollBy({left:-242,behavior:motion.matches?'instant':'smooth'});});
+    carousel.querySelector('[data-cert-next]').addEventListener('click',()=>{paused=true;update();track.scrollBy({left:242,behavior:motion.matches?'instant':'smooth'});});
+    carousel.addEventListener('mouseenter',()=>hovered=true);carousel.addEventListener('mouseleave',()=>hovered=false);
+    carousel.addEventListener('focusin',()=>focused=true);carousel.addEventListener('focusout',e=>{if(!carousel.contains(e.relatedTarget))focused=false;});
+    track.addEventListener('touchstart',()=>{paused=true;update();},{passive:true});
+    motion.addEventListener('change',e=>{if(e.matches){paused=true;update();}});
+    new IntersectionObserver(([entry])=>visible=entry.isIntersecting).observe(carousel);
+    setInterval(()=>{if(paused||hovered||focused||!visible||document.hidden)return;const repeat=track.querySelector('[data-cert-copy="1"]');const cycle=repeat.offsetLeft-track.firstElementChild.offsetLeft;track.scrollLeft+=1;if(track.scrollLeft>=cycle)track.scrollLeft-=cycle;},40);
+  });
+  document.querySelectorAll('[data-office-map]').forEach(map=>{
+    const offices=JSON.parse(map.querySelector('.office-map-data').textContent),pins=[...map.querySelectorAll('.map-pin')];
+    const hide=()=>{pins.forEach(pin=>{pin.setAttribute('aria-expanded','false');map.querySelector('#'+pin.getAttribute('aria-controls')).hidden=true;});};
+    function show(id){hide();const office=offices.find(o=>o.id===id),pin=pins.find(p=>p.dataset.office===id);pin.setAttribute('aria-expanded','true');map.querySelector('#'+pin.getAttribute('aria-controls')).hidden=false;const panel=map.querySelector('.office-selection');panel.replaceChildren();const tag=document.createElement('span');tag.className='eyebrow';tag.textContent=office.type;const heading=document.createElement('h3');heading.textContent=office.city;const address=document.createElement('p');address.textContent=office.address;const link=document.createElement('a');link.className='text-link';link.textContent='Get directions ↗';link.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(office.address);link.target='_blank';link.rel='noopener noreferrer';panel.append(tag,heading,address,link);map.querySelectorAll('[data-office-select]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.officeSelect===id)));}
+    pins.forEach(pin=>{pin.addEventListener('mouseenter',()=>show(pin.dataset.office));pin.addEventListener('focus',()=>show(pin.dataset.office));pin.addEventListener('click',()=>show(pin.dataset.office));pin.parentElement.addEventListener('mouseleave',hide);pin.addEventListener('blur',hide);});
+    map.querySelectorAll('[data-office-select]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.officeSelect)));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
+  });
   const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('#main-nav');
   function closeMenu(){nav?.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false');}
   toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));nav.classList.toggle('is-open',!open);});

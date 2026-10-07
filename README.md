@@ -28,6 +28,9 @@ Open `http://127.0.0.1:4173`. `dist/` contains the complete deployable website. 
 
 ## Edit content and design
 
+- `people-data.mjs`: Managing Director, stakeholder and HR profiles, photo selection, exact LinkedIn URLs and clearly marked sample testimonials. Set `linkedin` to the verified full profile URL to turn the coming-soon control into a direct external profile link. Replace placeholder photos using `photo: 'filename.jpg'`, set `placeholder: false`, and update the name, role and biography together.
+- `feature-components.mjs`: MD message draft, people cards, certification carousel, office map and indicative policy templates. Replace MD copy and policy templates with approved content before removing their draft labels.
+
 - `site-data.mjs`: company details, services, industries, operating teams, articles and jobs.
 - `build.mjs`: page templates, homepage sections, routing and metadata generation.
 - `dist/styles.css`: responsive design system and page-specific styles (source file; keep under version control).
@@ -55,6 +58,18 @@ Applications follow the original company job notices. This site does not collect
 Detailed case studies, approved testimonials and privacy/terms/cookie policy text were unavailable. Explicit content-population states are included; legal placeholder routes are noindex. Certification badge scope and validity require confirmation. The source Director’s Message is unattributed; the site does not invent a named Managing Director or signature.
 
 Client names are presented in a typographic reference wall because verified logo assets were not available. No fake client logo or endorsement is used. Three insights are original editorial guides for this build, labeled accordingly, rather than fabricated company news.
+
+## Indicative content and interactive sections
+
+The MD page includes a clearly labeled sample message, placeholder identity and generated portrait. Leadership/stakeholder and HR cards combine the verified Garima Arora profile with explicitly indicative profiles. Missing LinkedIn URLs open an accessible coming-soon dialog; URLs are never guessed. Approved URLs can be pasted into `people-data.mjs`.
+
+Testimonials contain visibly labeled sample quotes and bracketed attribution fields, not real client endorsements. Privacy, terms and cookie routes contain structured bracketed templates, not operative legal policies. FAQs and three blog articles remain available.
+
+The certification strip scrolls automatically, pauses on hover/focus, offers manual previous/next and pause/resume controls, and starts paused under reduced-motion preferences. Only six unique credential badges are announced; a decorative duplicate set supports continuous scrolling.
+
+The offline office map shows city-level Ghaziabad and Mumbai markers with addresses on hover, keyboard focus and tap. Additional locations are not fabricated. Background geography derives from Natural Earth public-domain 1:110m country geometry; precise directions use the existing office-address links. No external map script, tracking or API key is needed.
+
+Additional ImageGen asset: `dist/assets/team-placeholder-portraits.png`, generated with the built-in ImageGen tool. Prompt: one 3-column, 2-row contact sheet of six fictional Indian enterprise professionals, with matching light gray backgrounds and head-and-shoulders business photography; top row MD, operations and finance; bottom row HR, recruitment and employee relations; navy, burgundy and neutral clothing; no text or logos. All sample portraits are labeled illustrative and do not depict GA Digital staff. Replace them with actual approved photographs later. The source sheet is rendered using CSS positioning without altering individual faces.
 
 ## Publication
 
