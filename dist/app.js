@@ -23,7 +23,7 @@
       if(selected===office.id)return;
       selected=office.id;
       const frame=map.querySelector('.office-street-map');
-      frame.src='https://maps.google.com/maps?q='+encodeURIComponent(office.address)+'&output=embed';
+      frame.src='https://maps.google.com/maps?q='+encodeURIComponent(office.address)+'&ll=22.5,79&z=4&output=embed';
       frame.title=office.city+' office street map';
       map.querySelector('[data-street-title]').textContent=office.city+' \u00b7 '+office.type;
       map.querySelector('[data-street-address]').textContent=office.address;
