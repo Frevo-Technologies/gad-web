@@ -1,0 +1,8 @@
+node_modules/
+.sites-local/
+artifacts/
+test-results/
+playwright-report/
+source-home.html
+research-pages/
+*.zip
