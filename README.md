@@ -28,6 +28,8 @@ Open `http://127.0.0.1:4173`. `dist/` contains the complete deployable website. 
 
 ## Edit content and design
 
+- `dist/theme.css`: the active warm editorial theme (ivory, deep navy, muted burgundy and serif display typography). It overrides the original design without changing content or interactions. Remove its stylesheet link in `build.mjs` and rebuild to restore the previous theme.
+
 - `people-data.mjs`: Managing Director, stakeholder and HR profiles, photo selection, exact LinkedIn URLs and clearly marked sample testimonials. Set `linkedin` to the verified full profile URL to turn the coming-soon control into a direct external profile link. Replace placeholder photos using `photo: 'filename.jpg'`, set `placeholder: false`, and update the name, role and biography together.
 - `feature-components.mjs`: MD message draft, people cards, certification carousel, office map and indicative policy templates. Replace MD copy and policy templates with approved content before removing their draft labels.
 
