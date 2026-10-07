@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://ga-digital-workforce.aurora-tick-9931.chatgpt.site/sitemap.xml
+Sitemap: https://ga-digital-workforce.freshwavetechlab.chatgpt.site/sitemap.xml
