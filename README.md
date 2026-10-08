@@ -28,7 +28,10 @@ Open `http://127.0.0.1:4173`. `dist/` contains the complete deployable website. 
 
 ## Edit content and design
 
-- `dist/theme.css`: the active warm editorial theme (ivory, deep navy, muted burgundy and serif display typography). It overrides the original design without changing content or interactions. Remove its stylesheet link in `build.mjs` and rebuild to restore the previous theme.
+- Theme preview: use the bottom-right selector, or open `/?theme=editorial`, `/?theme=classic` and `/?theme=fresh` (white navigation with blue/teal accents). A direct link takes precedence over the browser's saved choice. Switching retains the current page and remembers the choice locally.
+- `dist/theme.css`: warm editorial colors, shapes and typography, layered over the classic `dist/styles.css` design.
+- `dist/experience.css`: shared menu, two-column office map and theme-selector styling.
+- `dist/theme-switch.js`: early theme selection, local preference storage and URL updates.
 
 - `people-data.mjs`: Managing Director, stakeholder and HR profiles, photo selection, exact LinkedIn URLs and clearly marked sample testimonials. Set `linkedin` to the verified full profile URL to turn the coming-soon control into a direct external profile link. Replace placeholder photos using `photo: 'filename.jpg'`, set `placeholder: false`, and update the name, role and biography together.
 - `feature-components.mjs`: MD message draft, people cards, certification carousel, office map and indicative policy templates. Replace MD copy and policy templates with approved content before removing their draft labels.
@@ -84,3 +87,7 @@ Final asset: `dist/assets/workforce-hero.webp`.
 Generated with the built-in ImageGen tool and converted to WebP for delivery. It is labeled as illustrative on the homepage and is not represented as a real GA Digital team photograph. Original company assets are preserved unchanged.
 
 Prompt: “Use case: photorealistic-natural. Asset type: corporate workforce company website hero photograph, landscape 1536x1024. Create a premium candid editorial photograph of three Indian industrial professionals, a senior male engineer in navy work shirt, an Indian woman engineer holding a tablet and another male technician, all wearing white hard hats and appropriate safety glasses, standing in a bright, clean, large modern manufacturing facility, reviewing work together. Authentic natural expressions, no posed smiling at camera. Frame waist up with generous architectural context, people on right two-thirds. Cool muted blue and steel palette, warm natural skin tones, soft daylight, refined realistic commercial photography, detailed but quiet background with structural beams. No text, logos, watermark, brand marks. This is an illustrative scene, not a real company team.”
+
+## Website policy drafts
+
+`policy-content.mjs` contains the Privacy Policy, Cookie Policy and Terms & Conditions prepared on 8 October 2026. These replace bracketed templates and describe the current email-draft form, theme local storage and automatically loaded Google Maps embeds. Footer links and cross-policy navigation are included. Draft notices and noindex remain pending company/legal approval. Confirm email/log retention, provider arrangements and request-handling procedures before adopting these as company policies. Reassess the text if deployment, analytics, forms or consent controls change. Reference: https://policies.google.com/privacy and https://policies.google.com/technologies/cookies .

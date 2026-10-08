@@ -1,0 +1,3 @@
+﻿import {test,expect} from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+for(const route of ['/privacy-policy','/cookie-policy','/terms-conditions'])test('policy readable on mobile '+route,async({page})=>{await page.setViewportSize({width:390,height:844});await page.goto(route);await expect(page.locator('.policy-links')).toBeVisible();await expect(page.locator('.policy-document')).not.toContainText('[Specify');expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);const audit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();expect(audit.violations.map(v=>v.id)).toEqual([]);});

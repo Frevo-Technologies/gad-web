@@ -1,0 +1,55 @@
+﻿/* Optional inner-page banner treatment. Remove this stylesheet link to revert. */
+body .inner-hero{isolation:isolate;position:relative;overflow:hidden;background:#102d43;border:0;padding-block:60px 64px}
+html[data-theme=editorial] body .inner-hero{background:#182e3a}
+html[data-theme=fresh] body .inner-hero{background:#123956}
+body .inner-hero:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,transparent 35%,#3c87932b 75%,#579c9d33)}
+body .inner-hero:after{content:'';position:absolute;left:0;bottom:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),#69bdb2 45%,transparent)}
+body .inner-hero>.wrap{position:relative;z-index:2}
+body .inner-hero h1{color:#fffaf2;max-width:900px;font-size:clamp(38px,4.4vw,64px);line-height:1.12;margin-bottom:20px;animation:banner-reveal .65s ease-out both}
+body .inner-hero .eyebrow{color:#b6e6de;animation:banner-reveal .5s ease-out both}
+body .inner-hero p{color:#d9e6ea;max-width:700px;font-size:15px;line-height:1.8;margin-bottom:0;animation:banner-reveal .8s ease-out both}
+body[data-route='/services/facility-management'] .inner-hero .eyebrow{color:#b6e6de}
+body[data-route='/services/facility-management'] .inner-hero p{color:#d9e6ea}
+body .inner-hero .button{margin-top:25px;background:#f3eee3;color:#15394c;border-color:#f3eee3;animation:banner-reveal .9s ease-out both}
+body .inner-hero .button:hover{background:#fff;color:#15394c}
+.banner-art{position:absolute;right:-60px;top:50%;width:560px;height:560px;transform:translateY(-50%);z-index:0;pointer-events:none;opacity:.65;mask-image:linear-gradient(90deg,transparent,#000 42%)}
+.banner-art i{position:absolute;border:1px solid #9bd2cd60;border-radius:50%;width:400px;height:400px;top:80px;left:80px;animation:banner-orbit 4.5s ease-in-out 1 both}
+.banner-art i:nth-child(2){inset:125px auto auto 125px;width:310px;height:310px;border-color:#e2cfa757;animation-direction:reverse}
+.banner-art i:nth-child(3){inset:175px auto auto 175px;width:210px;height:210px;background:radial-gradient(circle at 30% 30%,#80ccc333,#72a9d508);border-color:#9bd2cd70}
+.banner-art i:after{content:'';position:absolute;top:15%;left:13%;width:9px;height:9px;border-radius:50%;background:#b6ddd4;box-shadow:0 0 22px #92dace80}
+.banner-art>span{position:absolute;inset:30px;background-image:radial-gradient(#cee4e54d 1px,transparent 1px);background-size:24px 24px;z-index:-1;opacity:.4}
+@keyframes banner-reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes banner-orbit{from{transform:rotate(-35deg) scale(.92)}to{transform:rotate(20deg) scale(1)}}
+@media(max-width:760px){body .inner-hero{padding-block:38px 42px}body .inner-hero h1{font-size:39px;max-width:100%;overflow-wrap:break-word}body .inner-hero p{font-size:13px}.banner-art{right:-230px;opacity:.28}body .inner-hero .eyebrow{font-size:9px}}
+@media(prefers-reduced-motion:reduce){body .inner-hero h1,body .inner-hero p,body .inner-hero .eyebrow,body .inner-hero .button,.banner-art i{animation:none}}
+/* Route-specific palettes and four decorative compositions. */
+body[data-route^='/about']{--banner-base:#342d40;--banner-glow:#be9a7945;--banner-accent:#f1d7ae}
+body[data-route^='/services']{--banner-base:#123d47;--banner-glow:#54baad40;--banner-accent:#acebdc}
+body[data-route^='/industries']{--banner-base:#203559;--banner-glow:#729ad34a;--banner-accent:#c1dcff}
+body[data-route^='/clients']{--banner-base:#393126;--banner-glow:#d4b97438;--banner-accent:#f5dfaa}
+body[data-route^='/careers']{--banner-base:#422c49;--banner-glow:#c48bac40;--banner-accent:#f3cde7}
+body[data-route^='/insights']{--banner-base:#26315b;--banner-glow:#a196d64a;--banner-accent:#ded8ff}
+body[data-route^='/contact']{--banner-base:#183e38;--banner-glow:#73bc9c45;--banner-accent:#bcebd8}
+body[data-route$='policy'],body[data-route='/terms-conditions'],body[data-route='/recruitment-disclaimer']{--banner-base:#303b48;--banner-glow:#9cacbf38;--banner-accent:#d8e4f0}
+body[data-route='/faqs'],body[data-route='/public-notices']{--banner-base:#40352b;--banner-glow:#d3a16c38;--banner-accent:#f3d7b3}
+html[data-theme] body[data-route] .inner-hero{background:var(--banner-base,#16374b)}
+body[data-route] .inner-hero:before{background:linear-gradient(105deg,transparent 30%,var(--banner-glow,#579c9d33))}
+body[data-route] .inner-hero .eyebrow{color:var(--banner-accent,#b6e6de)}
+body[data-route] .inner-hero:after{background:linear-gradient(90deg,var(--banner-accent,#b6e6de),transparent 85%)}
+.banner-art i{border-color:var(--banner-accent,#b6e6de);opacity:.4}.banner-art i:after{background:var(--banner-accent,#b6e6de)}
+body[data-banner=arcs] .banner-art{right:-100px;transform:translateY(-50%) rotate(-22deg)}
+body[data-banner=arcs] .banner-art i{border-radius:180px 180px 20px 20px;width:250px;height:410px;top:70px;left:130px;animation-name:banner-rise}
+body[data-banner=arcs] .banner-art i:nth-child(2){left:200px;top:110px;width:220px;height:370px}
+body[data-banner=arcs] .banner-art i:nth-child(3){left:270px;top:150px;width:190px;height:330px;background:linear-gradient(150deg,var(--banner-glow),transparent)}
+body[data-banner=diamonds] .banner-art{transform:translateY(-50%) rotate(-35deg)}
+body[data-banner=diamonds] .banner-art i{border-radius:24px;animation-name:banner-expand}
+body[data-banner=diamonds] .banner-art i:nth-child(3){background:linear-gradient(135deg,var(--banner-glow),transparent)}
+body[data-banner=flow] .banner-art{width:650px;right:-170px;transform:translateY(-50%) rotate(-25deg)}
+body[data-banner=flow] .banner-art i{width:560px;height:180px;left:30px;top:120px;border-radius:100px;animation-name:banner-slide}
+body[data-banner=flow] .banner-art i:nth-child(2){top:230px;left:90px;width:480px;height:140px}
+body[data-banner=flow] .banner-art i:nth-child(3){top:330px;left:150px;width:400px;height:100px;background:linear-gradient(90deg,var(--banner-glow),transparent)}
+@keyframes banner-rise{from{transform:translateY(25px)}to{transform:translateY(0)}}
+@keyframes banner-expand{from{transform:scale(.82) rotate(-8deg)}to{transform:scale(1) rotate(0)}}
+@keyframes banner-slide{from{transform:translateX(50px)}to{transform:translateX(0)}}
+@media(max-width:760px){body[data-banner] .banner-art{right:-260px;opacity:.25}body[data-banner=flow] .banner-art{right:-340px}}
+@media(prefers-reduced-motion:reduce){body[data-banner] .banner-art i{animation:none}}

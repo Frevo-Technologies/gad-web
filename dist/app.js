@@ -1,4 +1,79 @@
 (() => {
+  if(location.pathname.replace(/\/$/,'')==='/about/md-message'){location.replace('/about'+location.search+'#director-message');return;}
+  const countMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('.impact-strip').forEach(strip=>{
+    const counters=[...strip.querySelectorAll('[data-count-to]')];
+    const finish=()=>counters.forEach(el=>el.textContent=Number(el.dataset.countTo).toLocaleString('en-IN'));
+    if(countMotion.matches||!('IntersectionObserver' in window)){finish();return;}
+    const observer=new IntersectionObserver(entries=>{
+      if(!entries.some(e=>e.isIntersecting))return;
+      observer.disconnect();
+      const start=performance.now();
+      function tick(now){
+        if(countMotion.matches){finish();return;}
+        const progress=Math.min((now-start)/1500,1),eased=1-Math.pow(1-progress,3);
+        counters.forEach(el=>el.textContent=Math.round(Number(el.dataset.countTo)*eased).toLocaleString('en-IN'));
+        if(progress<1)requestAnimationFrame(tick);else finish();
+      }
+      counters.forEach(el=>el.textContent='0');requestAnimationFrame(tick);
+    },{threshold:.25});observer.observe(strip);
+  });
+  // Layer hover motion over the one-time banner entrance without restarting it.
+  const bannerMotion=matchMedia('(prefers-reduced-motion: reduce)'),hoverPointer=matchMedia('(hover: hover) and (pointer: fine)');
+  document.querySelectorAll('.inner-hero').forEach(banner=>{
+    const shapes=[...banner.querySelectorAll('.banner-art i')];
+    let frame=0,active=false,strength=0,last=0;
+    const clear=()=>{cancelAnimationFrame(frame);frame=0;strength=0;last=0;shapes.forEach(el=>{el.style.removeProperty('translate');el.style.removeProperty('rotate');});};
+    const tick=now=>{
+      const dt=last?Math.min(now-last,50):16;last=now;
+      strength+=((active?1:0)-strength)*(1-Math.exp(-dt/240));
+      if(!active&&strength<.001){clear();return;}
+      shapes.forEach((el,i)=>{const t=now/1800+i*1.4;el.style.translate=`${Math.sin(t)*12*strength}px ${Math.cos(t*.8)*9*strength}px`;el.style.rotate=`${Math.sin(t*.6)*7*strength}deg`;});
+      frame=requestAnimationFrame(tick);
+    };
+    banner.addEventListener('pointerenter',()=>{if(bannerMotion.matches||!hoverPointer.matches)return;active=true;if(!frame)frame=requestAnimationFrame(tick);});
+    banner.addEventListener('pointerleave',()=>{active=false;});
+    bannerMotion.addEventListener('change',()=>{active=false;clear();});
+    hoverPointer.addEventListener('change',()=>{active=false;clear();});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden){active=false;clear();}});
+  });
+  const gentleMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  const revealAnimations=new Set();
+  if('IntersectionObserver' in window){
+    const revealObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting)return;
+        revealObserver.unobserve(entry.target);
+        if(gentleMotion.matches)return;
+        const el=entry.target;
+        const index=el.matches('.service-row,.client-tile')?[...el.parentElement.children].indexOf(el)%4:0;
+        const animation=el.animate([{opacity:0,translate:'0 16px'},{opacity:1,translate:'0 0'}],{duration:520,delay:index*65,easing:'cubic-bezier(.2,.7,.2,1)',fill:'backwards'});
+        revealAnimations.add(animation);animation.onfinish=()=>revealAnimations.delete(animation);
+      });
+    },{threshold:.12});
+    document.querySelectorAll('.section-heading,.faq-layout>div:first-child,.service-row,.client-tile').forEach(el=>revealObserver.observe(el));
+    gentleMotion.addEventListener('change',()=>{if(gentleMotion.matches){revealAnimations.forEach(a=>a.cancel());revealAnimations.clear();}});
+    document.addEventListener('focusin',()=>{revealAnimations.forEach(a=>a.cancel());revealAnimations.clear();});
+  }
+  document.querySelectorAll('details').forEach(details=>{
+    const summary=details.querySelector('summary');if(!summary)return;
+    let animation=null,targetOpen=details.open;
+    const settle=()=>{if(animation){animation.cancel();animation=null;}details.open=targetOpen;details.style.removeProperty('height');details.style.removeProperty('overflow');};
+    summary.addEventListener('click',event=>{
+      if(gentleMotion.matches)return;
+      event.preventDefault();
+      const start=details.getBoundingClientRect().height;
+      targetOpen=animation?!targetOpen:!details.open;
+      if(animation)animation.cancel();
+      details.open=true;details.style.removeProperty('height');
+      const border=parseFloat(getComputedStyle(details).borderTopWidth)+parseFloat(getComputedStyle(details).borderBottomWidth);
+      const end=targetOpen?details.getBoundingClientRect().height:summary.getBoundingClientRect().height+border;
+      details.style.overflow='hidden';
+      animation=details.animate([{height:start+'px'},{height:end+'px'}],{duration:260,easing:'ease-in-out'});
+      animation.onfinish=settle;
+    });
+    gentleMotion.addEventListener('change',()=>{if(gentleMotion.matches&&animation)settle();});
+  });
   const profileDialog=document.querySelector('#profile-dialog');
   document.querySelectorAll('[data-profile-pending]').forEach(button=>button.addEventListener('click',()=>{profileDialog.querySelector('[data-profile-name]').textContent=button.dataset.profilePending;profileDialog.showModal();}));
   profileDialog?.addEventListener('click',e=>{if(e.target===profileDialog){const rect=profileDialog.getBoundingClientRect();if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)profileDialog.close();}});
@@ -39,6 +114,7 @@
   document.addEventListener('click',e=>{if(!e.target.closest('.nav-group'))closeDropdowns();});
   nav?.addEventListener('focusout',e=>{if(!nav.contains(e.relatedTarget))closeDropdowns();});
   function closeMenu(){closeDropdowns();nav?.classList.remove('is-open');toggle?.setAttribute('aria-expanded','false');}
+  nav?.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu();});
   toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));nav.classList.toggle('is-open',!open);});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav?.classList.contains('is-open')){closeMenu();toggle.focus();}});
   document.addEventListener('click',e=>{if(!e.target.closest('.site-header'))closeMenu();});
