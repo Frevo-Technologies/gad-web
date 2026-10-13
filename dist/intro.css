@@ -1,0 +1,23 @@
+﻿/* Opening identity animation. Content remains usable if JavaScript is disabled. */
+html.intro-pending body{visibility:hidden}
+.site-intro{position:fixed;inset:0;z-index:10000;cursor:pointer;touch-action:pan-y}
+.site-header.intro-flight{position:fixed;z-index:10001;margin:0;padding:0;border:0;background:transparent;box-shadow:none;backdrop-filter:none;transform-origin:center;pointer-events:none}
+.intro-flight .brand{width:max-content}.intro-brand-hidden{visibility:hidden}
+@media(prefers-reduced-motion:reduce){html.intro-pending body{visibility:visible}.site-intro,.intro-flight{display:none}.intro-brand-hidden{visibility:visible}}
+html[data-theme] body .site-header.intro-flight{background:transparent;border:0;box-shadow:none;backdrop-filter:none}
+.intro-halo{position:absolute;left:50%;top:50%;width:min(560px,90vw);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;background:radial-gradient(circle,#5dbbb520,transparent 64%)}
+.intro-halo i{position:absolute;inset:8%;border:1px solid #65a9ad66;border-radius:50%;animation:intro-ring 2.6s ease-out both}
+.intro-halo i:nth-child(2){inset:19%;border-color:#c4a66866;animation-delay:.15s}
+.intro-halo i:nth-child(3){inset:30%;border-style:dashed;border-color:#65a9ad50;animation-delay:.3s}
+@keyframes intro-ring{0%{opacity:0;transform:scale(.4) rotate(-30deg)}35%{opacity:.8}100%{opacity:0;transform:scale(1.22) rotate(30deg)}}
+@media(prefers-reduced-motion:reduce){.intro-halo{display:none}.intro-halo i{animation:none}}
+/* A single light pass during the centre-logo pulse. */
+.intro-flight .brand{position:relative;overflow:hidden}
+.intro-flight .brand:after{content:'';position:absolute;inset:-30% auto -30% -65%;width:42%;background:linear-gradient(100deg,transparent,#ffffffb3,transparent);transform:skewX(-18deg);opacity:0;pointer-events:none}
+.intro-flight.intro-shining .brand:after{animation:intro-light-sweep .65s ease-in-out both}
+@keyframes intro-light-sweep{0%{left:-65%;opacity:0}25%{opacity:.85}75%{opacity:.85}100%{left:130%;opacity:0}}
+@media(prefers-reduced-motion:reduce){.intro-flight.intro-shining .brand:after{animation:none}}
+
+/* Full-resolution supplied artwork, uncropped throughout the logo flight. */
+.intro-flight .brand.intro-logo-art{display:block;width:100%;height:100%;background:#fff;border-radius:3px;overflow:hidden}
+.intro-flight .intro-logo-art>img{display:block;position:static;width:100%;height:100%;object-fit:contain;max-width:none}

@@ -91,3 +91,7 @@ Prompt: “Use case: photorealistic-natural. Asset type: corporate workforce com
 ## Website policy drafts
 
 `policy-content.mjs` contains the Privacy Policy, Cookie Policy and Terms & Conditions prepared on 8 October 2026. These replace bracketed templates and describe the current email-draft form, theme local storage and automatically loaded Google Maps embeds. Footer links and cross-policy navigation are included. Draft notices and noindex remain pending company/legal approval. Confirm email/log retention, provider arrangements and request-handling procedures before adopting these as company policies. Reassess the text if deployment, analytics, forms or consent controls change. Reference: https://policies.google.com/privacy and https://policies.google.com/technologies/cookies .
+
+## Opening logo animation
+
+`dist/intro.js` and `dist/intro.css` display the brand in the centre before moving it to the header on the first visit in a tab. It respects reduced motion and skips on interaction, resize or anchored entry. Open a fresh tab to preview again; `ga-intro-seen` in session storage prevents repetition during navigation. Remove the two intro asset references from `build.mjs` and rebuild to disable it.

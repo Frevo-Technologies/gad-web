@@ -125,3 +125,39 @@ main>.section+ .section{padding-top:24px}
 @media(max-width:760px){.impact-strip>.wrap{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-block:22px}.impact-strip>.wrap>div,.impact-strip>.wrap>div:first-child,.impact-strip>.wrap>div:nth-child(odd),.impact-strip>.wrap>div:last-child{padding:17px;border:1px solid var(--line)}.impact-strip>.wrap>div:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0 16px}.impact-strip>.wrap>div:last-child:before{grid-column:1/-1;margin-bottom:10px}.impact-strip>.wrap>div:last-child>span{margin:0}.impact-strip strong{font-size:30px;min-height:36px}.impact-strip>.wrap>div:before{margin-bottom:11px}}
 /* Small hover accents complement the once-only scroll reveals. */
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.service-row>.icon{transition:rotate .25s,background .25s}.service-row:hover>.icon{rotate:-6deg}.client-logo-stage img{transition:scale .3s}.client-tile:hover .client-logo-stage img{scale:1.04}}
+/* Scroll navigation and journey progress. */
+.site-header .header-inner{transition:height .25s ease}.site-header.header-compact .header-inner{height:76px}.site-header.header-compact{box-shadow:0 5px 22px #10232e24}
+.back-to-top{position:fixed;right:22px;bottom:100px;width:48px;height:48px;padding:0;border:0;border-radius:50%;background:var(--paper,#fff);color:var(--navy);box-shadow:0 3px 18px #10232e26;z-index:109;display:grid;place-items:center;animation:back-top-in .2s ease-out}.back-to-top[hidden]{display:none}.back-to-top svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke-width:2}.progress-track{stroke:var(--line)}.progress-value{stroke:var(--red);stroke-dasharray:125.664;stroke-dashoffset:calc(125.664 * (1 - var(--read-progress,0)));transform:rotate(-90deg);transform-origin:center}.back-to-top>span{font-size:23px;line-height:1}.back-to-top:hover{background:var(--soft)}
+.timeline{position:relative;padding-left:28px}.timeline:before,.timeline:after{content:'';position:absolute;left:0;top:var(--section-space,64px);bottom:var(--section-space,64px);width:2px;background:var(--line);transform-origin:top}.timeline:after{background:var(--red);transform:scaleY(var(--timeline-progress,0))}.timeline>article{position:relative}.timeline>article:before{content:'';position:absolute;width:10px;height:10px;border:2px solid var(--red);background:var(--paper,#fff);border-radius:50%;left:-32px;top:32px}
+@keyframes back-top-in{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+@media(max-width:1050px){.site-header.header-compact .header-inner{height:72px}.site-header.header-compact #main-nav{top:72px;max-height:calc(100dvh - 72px)}}
+@media(max-width:760px){.back-to-top{right:14px;bottom:88px;width:44px;height:44px}.timeline{padding-left:24px}.timeline>article:before{left:-28px}}
+@media(prefers-reduced-motion:reduce){.site-header .header-inner{transition:none}.back-to-top{animation:none}.timeline:after{transform:scaleY(1)}}
+/* JS only prepares offscreen targets; visible content never blinks out. */
+.reveal-pending{opacity:0}
+@media(prefers-reduced-motion:reduce){.reveal-pending{opacity:1}}
+@media print{.reveal-pending{opacity:1!important}}
+
+/* Scroll depth stays on artwork, keeping text and interactive targets steady. */
+.hero-photo>img.scroll-depth-photo{scale:1.12;translate:0 var(--scroll-drift,0px)}
+.scroll-accent-heading .eyebrow{position:relative;width:fit-content}
+.scroll-accent-heading .eyebrow:after{content:'';display:block;height:2px;width:72px;margin-top:10px;background:linear-gradient(90deg,var(--red),var(--navy));transform-origin:left;transform:scaleX(var(--accent-progress,1));opacity:.8}
+@media(prefers-reduced-motion:reduce){.hero-photo>img.scroll-depth-photo{scale:1;translate:none}.scroll-accent-heading .eyebrow:after{transform:none}.inner-hero .banner-art{translate:none!important;rotate:none!important}}
+
+/* Hover choreography complements the one-time scroll entrances. */
+.person-portrait{overflow:hidden}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .service-row>.icon{transition:rotate .5s,scale .5s,background .5s}
+  .service-row:hover>.icon{rotate:-10deg;scale:1.12}
+  .person-portrait>img,.person-portrait>.sample-portrait{transition:scale .8s cubic-bezier(.22,.61,.36,1)}
+  .person-card:hover .person-portrait>img,.person-card:hover .sample-portrait{scale:1.06}
+  .industry-grid .industry-number{transition:translate .4s,color .4s}
+  .industry-grid>a:hover .industry-number{translate:3px 0}
+  .industry-grid .text-link{transition:rotate .5s,background .5s}
+  .industry-grid>a:hover .text-link{rotate:45deg;background:var(--paper,#fff)}
+  .button{position:relative;overflow:hidden;isolation:isolate}
+  .button:after{content:'';position:absolute;inset:-50% auto -50% -60%;width:35%;background:linear-gradient(90deg,transparent,#ffffff38,transparent);transform:skewX(-20deg);pointer-events:none}
+  .button:hover:after,.button:focus-visible:after{animation:button-light-pass .85s ease-out}
+  .client-tile:hover .client-logo-stage img{scale:1.09;transition:scale .65s cubic-bezier(.22,.61,.36,1)}
+}
+@keyframes button-light-pass{to{left:140%}}
