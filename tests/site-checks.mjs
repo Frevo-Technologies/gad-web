@@ -11,11 +11,11 @@ for(const route of routes){const file=route.url==='/'?'dist/index.html':`dist${r
   for(const match of html.matchAll(/href="(\/[^"]*)"/g)){const target=match[1].split(/[?#]/)[0];if(target.endsWith('.css')||target.startsWith('/assets/'))assert(fs.existsSync(path.join('dist',target)),target);else assert(known.has(target),`${route.url}: broken route ${target}`);links++;}
   for(const match of html.matchAll(/<img\b[^>]*>/g)){assert(/alt="[^"]+"/.test(match[0]),`${route.url}: image needs meaningful alt`);const src=match[0].match(/src="([^"]+)"/)[1];assert(fs.existsSync(path.join('dist',src)),`${route.url}: missing ${src}`);images++;}
   for(const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))assert.doesNotThrow(()=>JSON.parse(match[1]));
+  assert(!/GA Digital(?! Web Word)/i.test(html),`${route.url}: use full company name`);
   assert(!html.includes('Lorem ipsum'),`${route.url}: filler text`);
   assert(!html.includes('"@type":"JobPosting"'),`${route.url}: unverified jobs must not use live job schema`);
 }
-assert(fs.readFileSync('dist/careers/jobs/mts-navi-mumbai/index.html','utf8').includes('Closed · 29 July 2026'));
-assert(fs.readFileSync('dist/careers/jobs/technical-architect-bengaluru/index.html','utf8').includes('Closed · 15 May 2026'));
-assert(fs.readFileSync('dist/public-notices/index.html','utf8').includes('₹10,000'));
+for(const route of ['/careers','/careers/jobs','/careers/apply','/careers/jobs/mts-navi-mumbai','/careers/jobs/technical-architect-bengaluru']){const html=fs.readFileSync('dist'+route+'/index.html','utf8');assert(html.includes('http-equiv="refresh"'));assert(html.includes('http://gad-hrms.frevo.co.in/open-positions'));assert(!html.includes('class="job-list"'));}
+assert(fs.readFileSync('dist/public-notices/index.html','utf8').includes('&#8377;11,000'));
 assert(fs.readFileSync('dist/public-notices/index.html','utf8').includes('14/06/2025'));
-console.log(`PASS: ${routes.length} routes; ${links} internal links; ${images} image references; metadata, schema, public notices and expired-job safeguards.`);
+console.log(`PASS: ${routes.length} routes; ${links} internal links; ${images} image references; metadata, schema, public notices and Frevone career redirects.`);

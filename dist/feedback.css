@@ -1,0 +1,84 @@
+﻿/* Customer review: white surfaces, teal accents, shared compact components. */
+html[data-theme=fresh]{--navy:#133e44;--red:#087f80;--soft:#f1f9f8;--paper:#fff;--line:#dbe9e7}
+html[data-theme=fresh] body{background:#fff;color:#26494d}
+html[data-theme=fresh] .soft-bg,html[data-theme=fresh] .cert-section{background:linear-gradient(90deg,#e8f6f3 0%,#fff 22%,#fff 78%,#edf8f6 100%)}
+html[data-theme=fresh] .inner-hero{background:linear-gradient(115deg,#eef9f7,#fff 55%,#d9eeeb);color:var(--navy)}
+html[data-theme=fresh] .inner-hero p,html[data-theme=fresh] .inner-hero .eyebrow{color:#376567}
+html[data-theme=fresh] .home-hero{background:linear-gradient(110deg,#fff 30%,#e6f5f2)}
+html[data-theme=fresh] .why-section,html[data-theme=fresh] .final-cta{background:#125b60}
+html[data-theme=fresh] .site-header .logo-crop{width:67px;height:76px;background:#fff;border-radius:5px}
+html[data-theme=fresh] .site-header .logo-crop img{position:static;width:100%;height:100%;object-fit:contain}
+.sector-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.sector-card{min-width:0;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 8px 24px #1349440c;overflow:hidden;perspective:1200px}
+.sector-flipper{display:grid;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+.sector-front,.sector-back{grid-area:1/1;padding:24px;backface-visibility:hidden;min-width:0}
+.sector-front svg{width:100%;height:120px;padding:8px;margin-bottom:18px;stroke:#087f80;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none;background:radial-gradient(ellipse at center,#def2ed,transparent 70%)}
+.sector-card h3{font-size:22px;margin:0 0 12px;line-height:1.25}
+.sector-card p{font-size:13px;line-height:1.65;margin:0}
+.sector-front .eyebrow{font-size:10px;margin-bottom:10px}
+.sector-back{transform:rotateY(180deg);background:linear-gradient(145deg,#e4f5f1,#fff);display:flex;flex-direction:column;justify-content:center;visibility:hidden}
+.sector-back .small{margin-top:18px;font-weight:700}
+.sector-back ul{padding-left:18px;font-size:12px;line-height:1.7}
+.sector-card.is-flipped .sector-flipper{transform:rotateY(180deg)}
+.sector-card.is-flipped .sector-front{visibility:hidden}.sector-card.is-flipped .sector-back{visibility:visible}
+.sector-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid var(--line);padding:14px 20px}
+.sector-actions .text-link{font-size:11px;padding:4px 0;background:none;border:0;color:var(--navy);cursor:pointer}
+.client-ribbon{position:relative}.client-ribbon>[data-ribbon-pause]{display:block;margin:0 0 12px auto;background:none;border:1px solid var(--line);padding:8px 14px;font-size:11px;cursor:pointer}
+.client-ribbon-window{overflow-x:auto;scrollbar-width:thin;padding-bottom:10px}
+.client-ribbon .client-grid{display:flex;width:max-content;gap:12px;margin:0}
+.client-ribbon .client-tile{flex:0 0 190px;width:190px;min-height:134px}
+.client-ribbon .client-card-caption{min-height:48px}
+.people-grid.hr-directory,.people-grid.leadership-compact{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.hr-directory .person-card{border-top:3px solid var(--red)}
+.hr-directory .person-copy,.leadership-compact .person-copy{padding:20px}
+.hr-directory .person-copy h3,.leadership-compact .person-copy h3{font-size:20px}
+.leadership-compact .person-portrait{height:210px;min-height:0}
+.profile-email{font-size:12px!important;color:#496668}
+.credential-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.credential-gallery article{padding:25px;text-align:center;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 8px 24px #1349440a}
+.credential-gallery img{width:100%;height:125px;object-fit:contain;margin-bottom:20px}
+.credential-gallery h2{font-size:18px}
+@media(max-width:1000px){.sector-cards,.people-grid.hr-directory,.people-grid.leadership-compact{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.sector-cards,.people-grid.hr-directory,.people-grid.leadership-compact{grid-template-columns:1fr}.credential-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.credential-gallery article{padding:16px}.credential-gallery h2{font-size:15px}.sector-front svg{height:100px}.sector-front,.sector-back{padding:22px}.site-header .brand-text{font-size:17px}html[data-theme=fresh] .site-header .logo-crop{width:56px;height:66px}}
+@media(prefers-reduced-motion:reduce){.sector-flipper{transition:none}}
+html[data-theme=fresh] .why-section .eyebrow,html[data-theme=fresh] .final-cta .eyebrow{color:#b9f1e5}
+.site-header .logo-crop img{position:static;width:100%;height:100%;object-fit:contain}
+/* Full company name remains readable in the header at every breakpoint. */
+.site-header .brand-text{font-size:18px;max-width:185px;line-height:1.2}
+.site-header .brand-text small{display:block;font-size:6px;letter-spacing:1px;margin-top:7px}
+@media(max-width:760px){.site-header .brand-text,html[data-theme=fresh] .site-header .brand-text{font-size:15px;max-width:150px}.site-header .brand-text small{font-size:5px;letter-spacing:.7px}}
+@media(max-width:380px){.site-header .brand{gap:8px}.site-header .brand-text,html[data-theme=fresh] .site-header .brand-text{max-width:132px;font-size:14px}}
+.facility-catalogue{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.facility-catalogue article,.department-grid article,.award-card{padding:26px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(125deg,#f0faf7,#fff);box-shadow:0 5px 20px #133e4408}
+.facility-catalogue h2{font-size:24px;line-height:1.3}.facility-catalogue p{font-size:14px;color:#3c6567}.facility-catalogue ul{padding-left:18px;font-size:13px;line-height:1.8}
+.department-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.department-grid h3{font-size:20px}.department-grid a{font-size:13px;overflow-wrap:anywhere}
+.placement-notice{border-left:4px solid #b07718;background:#fff8e9;padding:24px 30px;margin-block:28px;border-radius:8px}.placement-notice h2{font-size:26px}.placement-notice p{max-width:950px;margin-bottom:14px}.placement-notice .eyebrow{color:#80500c}
+#verification-result{padding-top:20px}#verification-result p{font-size:13px}.faq-contact{border-top:1px solid var(--line)}
+@media(max-width:760px){.facility-catalogue{grid-template-columns:1fr}.department-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.department-grid article{padding:18px}.placement-notice{padding:20px}.placement-notice h2{font-size:23px}}
+/* Keep the white/teal theme legible over every route's banner artwork. */
+html[data-theme=fresh] body[data-route] .inner-hero{background:linear-gradient(115deg,#eef9f7,#fff 55%,#d9eeeb);--banner-accent:#167a78;--banner-glow:#54baad20}
+html[data-theme=fresh] body[data-route] .inner-hero h1{color:#133e44}
+html[data-theme=fresh] body[data-route] .inner-hero p,html[data-theme=fresh] body[data-route] .inner-hero .eyebrow{color:#376567}
+.whatsapp-chat{position:fixed;left:22px;bottom:24px;z-index:109;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#087c42;color:#fff;box-shadow:0 5px 20px #123e4433;transition:background .2s,transform .2s}
+.whatsapp-chat svg{width:34px;height:34px}.whatsapp-chat:hover{background:#066334;transform:translateY(-3px)}.whatsapp-chat:focus-visible{outline:3px solid #123e44;outline-offset:4px}
+@media(max-width:760px){.whatsapp-chat{left:14px;bottom:88px;width:50px;height:50px}.whatsapp-chat svg{width:30px;height:30px}}
+@media(prefers-reduced-motion:reduce){.whatsapp-chat{transition:none}.whatsapp-chat:hover{transform:none}}
+@media print{.whatsapp-chat{display:none}}
+.faq-chat-launcher{position:fixed;left:22px;bottom:94px;z-index:109;border:0;border-radius:24px;background:#133e44;color:#fff;padding:13px 19px;font:700 13px var(--font);box-shadow:0 4px 18px #123e4430;cursor:pointer}
+.faq-chat{position:fixed;inset:auto auto 24px 22px;width:390px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 48px);padding:0;border:1px solid #c6ded9;border-radius:18px;background:#fff;color:#163e44;box-shadow:0 20px 80px #102a4340;overflow:auto}
+.faq-chat::backdrop{background:#102a4340}.faq-chat header{display:flex;gap:12px;justify-content:space-between;padding:20px;background:#eff8f6}.faq-chat h2{font-size:23px;margin:0 0 5px}.faq-chat header p{font-size:11px;margin:0}.faq-chat-close{align-self:start;font-size:26px;border:0;background:transparent;color:#163e44;cursor:pointer;min-width:40px;min-height:40px}.faq-chat-note{font-size:11px;line-height:1.6;padding:14px 20px;margin:0;color:#486264}.faq-chat-topics{display:flex;flex-wrap:wrap;gap:7px;padding:0 20px 16px}.faq-chat-topics button{border:1px solid #a9ceca;border-radius:16px;background:#f0f8f7;color:#194f53;padding:8px 10px;font-size:11px;cursor:pointer}.faq-chat-log{padding:0 20px;max-height:260px;overflow:auto}.faq-chat-message{background:#eff7f5;padding:12px;border-radius:10px;margin-bottom:10px}.faq-chat-message.user{background:#f4f4f4;margin-left:30px}.faq-chat-message p{font-size:13px;line-height:1.7;margin:0;overflow-wrap:anywhere}.faq-chat-message a{display:block;font-size:12px;color:#075e60;text-decoration:underline;padding-top:8px}.faq-chat-form{padding:16px 20px;margin:0;background:white;border:0;box-shadow:none}.faq-chat-form label{font-size:12px}.faq-chat-form>div{display:flex;gap:8px;margin-top:7px}.faq-chat-form input{width:100%;min-width:0;font-size:13px;padding:12px;border:1px solid #8caaa8;border-radius:6px}.faq-chat-form button{background:#133e44;color:white;border:0;border-radius:6px;padding:10px 14px;cursor:pointer}.faq-chat :focus-visible,.faq-chat-launcher:focus-visible{outline:3px solid #087f80;outline-offset:3px}
+@media(max-width:760px){.faq-chat-launcher{left:14px;bottom:150px;padding:12px 15px}.faq-chat{inset:auto 12px 12px;width:auto;max-width:none;max-height:calc(100dvh - 24px)}.faq-chat-log{max-height:30dvh}}
+@media print{.faq-chat,.faq-chat-launcher{display:none}}
+/* Keep website help above the controls on the right. */
+.faq-chat-launcher{left:auto;right:22px;bottom:188px}
+.faq-chat{left:auto;right:22px}
+@media(max-width:760px){.faq-chat-launcher{left:auto;right:14px;bottom:150px}.faq-chat{left:12px;right:12px}}
+/* Anchor help to the corner; keep preview controls beside it. */
+.faq-chat-launcher{right:18px;bottom:18px}
+.theme-picker{right:165px;bottom:18px}
+.faq-chat{right:18px;bottom:76px}
+@media(max-width:760px){.faq-chat-launcher{right:12px;bottom:12px}.theme-picker{left:12px;right:155px;bottom:12px;display:block;padding:5px 8px}.theme-picker label{display:block;font-size:9px;margin-bottom:3px}.theme-picker select{width:100%;max-width:100%;min-height:30px;font-size:10px;padding:4px}.faq-chat{left:12px;right:12px;bottom:12px}}
+.faq-chat-launcher{width:56px;height:56px;padding:0;border-radius:50%;display:grid;place-items:center;background:#087f80;box-shadow:0 5px 20px #123e4433}
+.faq-chat-launcher svg{width:29px;height:29px}.faq-chat-launcher:hover{background:#09696b}
+.theme-picker{right:88px}
+@media(max-width:760px){.faq-chat-launcher{width:52px;height:52px}.theme-picker{left:auto;right:78px;max-width:205px}}

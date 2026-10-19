@@ -20,11 +20,6 @@
     "noindex": false
   },
   {
-    "url": "/services/hrm-consulting",
-    "title": "HRM Consulting",
-    "noindex": false
-  },
-  {
     "url": "/services/outsourcing-training",
     "title": "Outsourcing & Training",
     "noindex": false
@@ -40,13 +35,13 @@
     "noindex": false
   },
   {
-    "url": "/services/payroll-workforce-administration",
-    "title": "Payroll & Workforce Administration",
+    "url": "/services/employment-verification",
+    "title": "Employment Verification",
     "noindex": false
   },
   {
     "url": "/about",
-    "title": "About GA Digital",
+    "title": "Our Story",
     "noindex": false
   },
   {
@@ -61,7 +56,7 @@
   },
   {
     "url": "/about/our-team",
-    "title": "Our Team & Delivery Organization",
+    "title": "HR Team",
     "noindex": false
   },
   {
@@ -77,11 +72,11 @@
   {
     "url": "/about/md-message",
     "title": "MD Message",
-    "noindex": false
+    "noindex": true
   },
   {
     "url": "/about/certifications",
-    "title": "Certifications & Accreditations",
+    "title": "Certifications & Awards",
     "noindex": false
   },
   {
@@ -181,7 +176,7 @@
   },
   {
     "url": "/insights/planning-workforce-requirements",
-    "title": "A clearer brief. A stronger workforce engagement.",
+    "title": "What to share when you need contract staff.",
     "noindex": false
   },
   {
@@ -196,42 +191,42 @@
   },
   {
     "url": "/careers",
-    "title": "Careers",
-    "noindex": false
+    "title": "Jobs & Applications",
+    "noindex": true
   },
   {
     "url": "/careers/jobs",
-    "title": "Search Job Notices",
-    "noindex": false
+    "title": "Jobs & Applications",
+    "noindex": true
   },
   {
     "url": "/careers/jobs/icmr-nihr-project-roles",
-    "title": "Project & Research Roles",
-    "noindex": false
+    "title": "Jobs & Applications",
+    "noindex": true
   },
   {
     "url": "/careers/jobs/mts-navi-mumbai",
-    "title": "Multi-Tasking Staff",
-    "noindex": false
+    "title": "Jobs & Applications",
+    "noindex": true
   },
   {
     "url": "/careers/jobs/product-manager-delhi",
-    "title": "Manager – Product",
-    "noindex": false
+    "title": "Jobs & Applications",
+    "noindex": true
   },
   {
     "url": "/careers/jobs/technical-architect-bengaluru",
-    "title": "Technical Architect",
-    "noindex": false
+    "title": "Jobs & Applications",
+    "noindex": true
   },
   {
     "url": "/careers/apply",
-    "title": "Application Guidance",
-    "noindex": false
+    "title": "Jobs & Applications",
+    "noindex": true
   },
   {
     "url": "/careers/life-at-ga-digital",
-    "title": "Life at GA Digital",
+    "title": "Life at GA Digital Web Word",
     "noindex": false
   },
   {

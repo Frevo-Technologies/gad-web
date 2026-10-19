@@ -1,8 +1,8 @@
 // Replace placeholder names/photos and paste exact LinkedIn profile URLs here.
 // null URLs produce a clear coming-soon dialog, never a guessed profile link.
-export const managingDirector={id:'md',name:'[Managing Director name]',role:'Managing Director',portrait:0,placeholder:true,linkedin:null,bio:'Indicative leadership profile. Add the approved biography and areas of responsibility here.'};
+export const managingDirector={id:'md',name:'Garima Arora',role:'Managing Director',photo:'02.png',placeholder:false,linkedin:null,email:'garima1200@hotmail.com',bio:'Leading GA Digital Web Word and its recruitment and workforce services.'};
 export const stakeholders=[
- {id:'garima',name:'Garima Arora',role:'Company leader & entrepreneur',photo:'02.png',placeholder:false,linkedin:null,bio:'Leadership in human capital management, with a focus on innovation and integrity.'},
+ {id:'garima',name:'Garima Arora',role:'Managing Director',photo:'02.png',placeholder:false,linkedin:null,bio:'Leadership in human capital management, with a focus on innovation and integrity.'},
  {id:'operations',name:'[Stakeholder name]',role:'Operations leadership · indicative role',portrait:1,placeholder:true,linkedin:null,bio:'Indicative profile: oversight of service delivery, client coordination and operational teams.'},
  {id:'finance',name:'[Stakeholder name]',role:'Finance leadership · indicative role',portrait:2,placeholder:true,linkedin:null,bio:'Indicative profile: financial planning, governance and workforce administration.'}
 ];
