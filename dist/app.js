@@ -40,7 +40,7 @@
   const gentleMotion=matchMedia('(prefers-reduced-motion: reduce)');
   const revealAnimations=new Set();
   if('IntersectionObserver' in window){
-    const cards='.sector-card,.credential-gallery>article,.process-grid>div,.engagement-card,.plain-card,.link-panels>a,.why-grid>div,.service-row,.client-tile,.person-card,.timeline>article,.industry-grid>a,.article-card,.sample-testimonial';
+    const cards='.workforce-photo-card,.sector-card,.credential-gallery>article,.process-grid>div,.engagement-card,.plain-card,.link-panels>a,.why-grid>div,.service-row,.client-tile,.person-card,.timeline>article,.industry-grid>a,.article-card,.sample-testimonial';
     const contentTargets=cards+',.section-heading,.md-copy,.intro-section>div,.why-layout>div:first-child,.two-col>div,.career-band>.wrap>*,.final-cta>.wrap>*,.cert-carousel';
     const candidates=[...document.querySelectorAll(contentTargets)].filter(el=>!el.parentElement.closest(contentTargets));
     document.querySelectorAll('main>section:not(.home-hero):not(.inner-hero):not(.impact-strip)').forEach(section=>{

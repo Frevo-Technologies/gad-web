@@ -82,3 +82,52 @@ html[data-theme=fresh] body[data-route] .inner-hero p,html[data-theme=fresh] bod
 .faq-chat-launcher svg{width:29px;height:29px}.faq-chat-launcher:hover{background:#09696b}
 .theme-picker{right:88px}
 @media(max-width:760px){.faq-chat-launcher{width:52px;height:52px}.theme-picker{left:auto;right:78px;max-width:205px}}
+/* Narrow badge ribbon, matching the compact reference layout. */
+body .compact-certifications{padding-block:14px;background:#f2f7f8;border-block:1px solid #dfe9eb}
+.compact-certifications .carousel-controls{margin:0 0 8px;gap:12px;display:flex;align-items:center;justify-content:space-between}
+.compact-certifications .carousel-controls h2{font:700 10px var(--font);text-transform:uppercase;letter-spacing:1.6px;margin:0;color:#506870}
+.compact-certifications .carousel-controls>div{display:flex;gap:6px;align-items:center}.compact-certifications .carousel-controls button,.compact-certifications .carousel-controls .text-link{font-size:10px;padding:5px 8px;min-height:28px}
+.compact-certifications .cert-track{gap:16px;padding:0;scrollbar-width:none}.compact-certifications .cert-slide{flex:0 0 155px;width:155px;min-height:0;padding:8px 12px;background:transparent;border:0;border-radius:0;box-shadow:none}
+.compact-certifications .cert-slide img{height:44px;width:72px;object-fit:contain;margin:0 auto 8px;filter:grayscale(1);opacity:.75}.compact-certifications .cert-slide span{font-size:9px;letter-spacing:.7px;line-height:1.3;color:#506870}
+.portrait-pending{display:flex;align-items:center;justify-content:center;flex-direction:column;background:linear-gradient(135deg,#e1f2ee,#f6faf9);gap:16px}.portrait-pending>span{font-size:50px;letter-spacing:3px;color:#527d7c}.portrait-pending figcaption{position:static;color:#486a69;font-size:11px;background:transparent}
+.department-grid{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.profile-email{overflow-wrap:anywhere}
+@media(max-width:600px){.compact-certifications .cert-slide{flex-basis:116px;width:116px;padding-inline:6px}.compact-certifications .cert-slide img{height:38px;width:60px}.compact-certifications .carousel-controls{gap:6px}.compact-certifications .carousel-controls button{padding:4px}.compact-certifications .carousel-controls h2{font-size:9px;letter-spacing:.8px}}
+/* Leadership hierarchy: MD above four Chiefs; Director has a separate card. */
+.people-grid.leadership-compact{grid-template-columns:repeat(4,minmax(0,1fr));gap:44px 22px;align-items:stretch}
+.leadership-compact .person-card{position:relative;overflow:visible;order:1;background:#fff;border:1px solid #8aafbd;border-radius:10px;text-align:center}
+.leadership-compact .person-card:first-child{order:0;grid-column:1/-1;width:300px;max-width:100%;justify-self:center;background:#203d64;color:#fff}
+.leadership-compact .person-card:first-child .person-role,.leadership-compact .person-card:first-child .profile-email,.leadership-compact .person-card:first-child .linkedin-link{color:#fff}
+.leadership-compact .person-card:nth-child(2){order:2;grid-column:1/-1;width:300px;max-width:100%;justify-self:center}
+.leadership-compact .person-portrait{height:80px;width:80px;margin:18px auto 0;border-radius:50%;overflow:hidden}
+.leadership-compact .person-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.leadership-compact .portrait-pending>span{font-size:24px}.leadership-compact .portrait-pending figcaption{display:none}
+.leadership-compact .person-copy{padding:16px}.leadership-compact .person-copy h3{font-size:17px;margin-bottom:8px}.leadership-compact .person-role{font-size:12px;min-height:36px}.leadership-compact .linkedin-link{font-size:11px}.leadership-compact .person-card:first-child:after{content:'';position:absolute;left:50%;bottom:-23px;height:22px;border-left:1px solid #668ca8}
+.leadership-compact .person-card:nth-child(n+3):before{content:'';position:absolute;left:50%;top:-23px;height:22px;border-left:1px solid #668ca8}
+.leadership-compact .person-card:nth-child(n+3):after{content:'';position:absolute;top:-23px;left:-12px;right:-12px;border-top:1px solid #668ca8}
+.leadership-compact .person-card:nth-child(3):after{left:50%}.leadership-compact .person-card:last-child:after{right:50%}
+@media(max-width:1000px){.people-grid.leadership-compact{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.leadership-compact .person-card:before,.leadership-compact .person-card:after{display:none}}
+@media(max-width:600px){.people-grid.leadership-compact{grid-template-columns:1fr}.leadership-compact .person-card,.leadership-compact .person-card:first-child,.leadership-compact .person-card:nth-child(2){width:100%}}
+.compact-certifications .cert-track{margin:0}.compact-certifications .cert-slide{gap:0}.compact-certifications .carousel-controls{flex-direction:row}.compact-certifications .cert-slide>span{font-size:9px;color:#506870}
+/* Label sits outside the badge strip; controls remain beside it. */
+body .compact-certifications{background:transparent;border:0;padding-block:18px}
+.compact-certifications>.wrap{position:relative}
+.compact-certifications .cert-ribbon-heading{padding:0 0 12px;min-height:40px}
+.compact-certifications .cert-ribbon-heading h2{font:700 11px var(--font);letter-spacing:1.6px;text-transform:uppercase;color:#506870;margin:0;padding-top:7px}
+.compact-certifications .carousel-controls{position:absolute;right:0;top:0;margin:0}
+.compact-certifications .cert-track{background:#f2f7f8;border-block:1px solid #dfe9eb;padding-block:10px}
+@media(max-width:600px){.compact-certifications .cert-ribbon-heading h2{font-size:9px;letter-spacing:.8px}.compact-certifications .cert-track{padding-block:8px}}
+/* People-focused photography, with the full hero team visible. */
+body[data-route='/'] .hero-photo{align-self:center;min-height:0;aspect-ratio:3/2;height:auto;overflow:hidden}
+body[data-route='/'] .hero-photo>img{height:100%;width:100%;object-fit:cover;object-position:center}
+body[data-route='/'] .hero-photo>img.scroll-depth-photo{scale:1;translate:none}
+.workforce-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;padding-bottom:var(--section-space,64px)}
+.workforce-photo-card{display:block;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 8px 24px #1349440a}
+.workforce-photo-card figure{margin:0}.workforce-photo-card img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;transition:scale .7s}
+.workforce-photo-card figcaption{position:relative;background:#fff;padding:22px}.workforce-photo-card figcaption>span:first-child{font-size:10px;font-weight:750;letter-spacing:1px;color:#087779}.workforce-photo-card h2{font-size:25px;line-height:1.25;margin:10px 0}.workforce-photo-card p{font-size:13px;line-height:1.7;margin:0 0 12px}.workforce-photo-card .photo-link{font-size:12px;font-weight:700;color:#087779}.workforce-image-note{grid-column:1/-1;font-size:10px;color:#566b6e;margin:-8px 0 0}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.workforce-photo-card:hover img{scale:1.025}}
+@media(max-width:760px){.workforce-gallery{grid-template-columns:1fr;gap:18px}.workforce-photo-card figcaption{padding:18px}.workforce-photo-card h2{font-size:23px}body[data-route='/'] .hero-photo figcaption{bottom:14px;font-size:12px}.hero-photo .caption-mark{width:30px;height:30px}}
+.md-layout .person-portrait:has(img[src$="garima-arora.jpeg"]){height:auto;aspect-ratio:1;min-height:0}
+.md-layout .person-portrait img[src$="garima-arora.jpeg"]{width:100%;height:100%;object-fit:contain}
+.leadership-compact img[src$="garima-arora.jpeg"]{object-position:50% 24%}
+.service-photo-section{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}.service-photo-section figure{margin:0}.service-photo-section img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:16px}.service-photo-section figcaption{font-size:10px;color:#566b6e;margin-top:8px}.service-photo-section h2{font-size:clamp(27px,3vw,40px);line-height:1.2}.service-photo-section p{font-size:15px;line-height:1.8}.credential-update{padding-block:24px}.footer-intro>p{max-width:500px}
+@media(max-width:760px){.service-photo-section{grid-template-columns:1fr;gap:22px}.service-photo-section h2{font-size:29px}}

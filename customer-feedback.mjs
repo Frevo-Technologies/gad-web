@@ -25,7 +25,7 @@ export function applyFeedback(pages,{process,cta,certs,innerHero}){
   if(p.url==='/services/outsourcing-training')p.body=p.body.replace(/<section class="wrap section compact-top">[\s\S]*?<\/section>/,'');
   if(p.url==='/services/recruitment-head-hunting')p.body=p.body.replace(/<section class="wrap section compact-top">[\s\S]*?<\/section>/,'<section class="wrap section"><span class="eyebrow">LOOKING FOR A JOB?</span><h2>Find your next opportunity.</h2><p>Browse published roles and review the requirements for your next career move.</p><a class="button" href="/careers">Explore opportunities</a></section>');
   if(p.url==='/about/our-team'){
-   p.title='HR Team';p.body=p.body.replace(/<section class="soft-bg">[\s\S]*?<\/section>/,'');
+   p.title='Our Team';p.body=p.body.replace(/<section class="soft-bg">[\s\S]*?<\/section>/,'');
   }
   if(p.url==='/about/certifications'){
    p.title='Certifications & Awards';p.body=innerHero('Certifications & Awards','Our certifications and awards, in one place.','CERTIFICATIONS & AWARDS')+`<section class="wrap section"><div class="credential-gallery">${certs.map(([im,name])=>`<article><img src="/assets/${im}" alt="${name} credential badge"><h2>${name}</h2></article>`).join('')}</div><p class="small muted">Displayed credential badges; current certificates, scope and validity details await confirmation.</p></section><section class="wrap section compact-top"><span class="eyebrow">AWARDS</span><h2>Recognition, documented.</h2><p>Award details and supporting images will be added once supplied and approved.</p></section>`;

@@ -2,12 +2,12 @@
 import AxeBuilder from '@axe-core/playwright';
 test.beforeEach(async({page})=>{await page.addInitScript(()=>sessionStorage.setItem('ga-intro-seen','1'));await page.emulateMedia({reducedMotion:'reduce'});});
 test('confirmed story, fee, facility and FAQ content',async({page})=>{
- await page.goto('/about');await expect(page.locator('h1')).toHaveText('Our Story');await expect(page.locator('#director-message')).toContainText('Garima Arora');expect(await page.locator('#director-message').evaluate(e=>e.previousElementSibling.classList.contains('inner-hero'))).toBe(true);await expect(page.locator('nav a[href="/about#director-message"]')).toHaveCount(0);
+ await page.goto('/about');await expect(page.locator('h1')).toHaveText('Two decades of putting people first.');await expect(page.locator('#director-message')).toContainText('Garima Arora');expect(await page.locator('#director-message').evaluate(e=>e.previousElementSibling.classList.contains('inner-hero'))).toBe(true);await expect(page.locator('nav a[href="/about#director-message"]')).toHaveCount(0);
  await page.goto('/about/md-message');await expect(page).toHaveURL(/\/about#director-message$/);
- await page.goto('/');await expect(page.locator('.placement-notice')).toContainText('11,000');await expect(page.locator('#delivery')).toHaveCount(1);await expect(page.locator('.cert-carousel')).toHaveCount(1);
+ await page.goto('/');await expect(page.locator('.placement-notice')).toContainText('11,000');await expect(page.locator('#delivery')).toHaveCount(1);await expect(page.locator('.cert-carousel')).toHaveCount(0);
  await page.goto('/services/facility-management');await expect(page.locator('.facility-catalogue article')).toHaveCount(10);await expect(page.locator('.facility-catalogue')).toContainText('Swimming pool lifeguards');
  await page.goto('/faqs');await expect(page.locator('main a[href="/contact"]')).toHaveCount(1);
- await page.goto('/contact');await expect(page.locator('input[name="company"]')).not.toHaveAttribute('required','');await expect(page.locator('.department-grid article')).toHaveCount(4);
+ await page.goto('/contact');await expect(page.locator('input[name="company"]')).not.toHaveAttribute('required','');await expect(page.locator('.department-grid article')).toHaveCount(5);
  await page.getByLabel('Full name').fill('Test Candidate');await page.getByLabel('Email *',{exact:true}).fill('test@example.com');await page.getByLabel('Phone *').fill('9999999999');await page.locator('select[name="service"]').selectOption('candidate');await page.locator('select[name="department"]').selectOption('hr@gadigital.in');await page.getByLabel('How can we help?').fill('Please help me with my application question.');await page.locator('input[name="consent"]').check();await page.getByRole('button',{name:'Prepare enquiry'}).click();await expect(page.locator('#form-result a').first()).toHaveAttribute('href',/^mailto:hr@gadigital.in\?/);
 });
 test('verification prepares an authorized request, and revised pages fit mobile',async({page})=>{

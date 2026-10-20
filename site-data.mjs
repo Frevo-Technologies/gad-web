@@ -32,4 +32,4 @@ export const jobs=[
 ];
 
 // Set workforceManaged to the approved cumulative total (a number) when supplied.
-export const impactStats = { clients:350, clientsSuffix:"+", workforceManaged:50000, workforceSuffix:"" };
+export const impactStats = { clients:350, clientsSuffix:"+", workforceManaged:50000, workforceSuffix:"+" };

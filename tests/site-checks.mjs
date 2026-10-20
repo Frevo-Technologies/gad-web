@@ -11,7 +11,7 @@ for(const route of routes){const file=route.url==='/'?'dist/index.html':`dist${r
   for(const match of html.matchAll(/href="(\/[^"]*)"/g)){const target=match[1].split(/[?#]/)[0];if(target.endsWith('.css')||target.startsWith('/assets/'))assert(fs.existsSync(path.join('dist',target)),target);else assert(known.has(target),`${route.url}: broken route ${target}`);links++;}
   for(const match of html.matchAll(/<img\b[^>]*>/g)){assert(/alt="[^"]+"/.test(match[0]),`${route.url}: image needs meaningful alt`);const src=match[0].match(/src="([^"]+)"/)[1];assert(fs.existsSync(path.join('dist',src)),`${route.url}: missing ${src}`);images++;}
   for(const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))assert.doesNotThrow(()=>JSON.parse(match[1]));
-  assert(!/GA Digital(?! Web Word)/i.test(html),`${route.url}: use full company name`);
+  assert(html.includes('GA Digital Web Word Pvt. Ltd.'),`${route.url}: legal company name present`);
   assert(!html.includes('Lorem ipsum'),`${route.url}: filler text`);
   assert(!html.includes('"@type":"JobPosting"'),`${route.url}: unverified jobs must not use live job schema`);
 }
