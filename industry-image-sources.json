@@ -1,0 +1,83 @@
+{
+  "government-public-sector": {
+    "file": "government-public-sector.jpg",
+    "source": "https://www.pexels.com/photo/office-workers-looking-at-documents-during-a-business-meeting-8439750/",
+    "download": "https://images.pexels.com/photos/8439750/pexels-photo-8439750.jpeg?auto=compress&cs=tinysrgb&w=960",
+    "creator": "Kampus Production",
+    "alt": "Administrative professionals reviewing documents during a meeting",
+    "license": "https://www.pexels.com/license/",
+    "bytes": 95463
+  },
+  "education": {
+    "file": "education.jpg",
+    "source": "https://www.pexels.com/photo/teacher-and-students-in-classroom-8419196/",
+    "download": "https://images.pexels.com/photos/8419196/pexels-photo-8419196.jpeg?auto=compress&cs=tinysrgb&w=960",
+    "creator": "RDNE Stock project",
+    "alt": "Teacher guiding students during a college classroom discussion",
+    "license": "https://www.pexels.com/license/",
+    "bytes": 106292
+  },
+  "healthcare": {
+    "file": "healthcare.jpg",
+    "source": "https://www.pexels.com/photo/group-of-doctors-walking-in-corridor-11119419/",
+    "download": "https://images.pexels.com/photos/11119419/pexels-photo-11119419.jpeg?auto=compress&cs=tinysrgb&w=960",
+    "creator": "Max Mishin",
+    "alt": "Medical professionals walking through a hospital corridor",
+    "license": "https://www.pexels.com/license/",
+    "bytes": 79978
+  },
+  "energy-utilities": {
+    "file": "energy-utilities.jpg",
+    "source": "https://www.pexels.com/photo/man-standing-among-solar-panels-19895880/",
+    "download": "https://images.pexels.com/photos/19895880/pexels-photo-19895880.jpeg?auto=compress&cs=tinysrgb&w=960",
+    "creator": "ThisIsEngineering",
+    "alt": "Engineer inspecting rooftop solar panels",
+    "license": "https://www.pexels.com/license/",
+    "bytes": 111879
+  },
+  "infrastructure-manufacturing": {
+    "file": "infrastructure-manufacturing.jpg",
+    "source": "https://www.pexels.com/photo/a-man-is-working-on-a-machine-in-a-factory-27102114/",
+    "download": "https://images.pexels.com/photos/27102114/pexels-photo-27102114.jpeg?auto=compress&cs=tinysrgb&w=960",
+    "creator": "Felipe Silva",
+    "alt": "Engineer operating manufacturing machinery in a factory",
+    "license": "https://www.pexels.com/license/",
+    "bytes": 200186
+  },
+  "bfsi": {
+    "file": "bfsi.jpg",
+    "source": "https://www.pexels.com/photo/a-man-and-woman-sitting-at-the-table-with-calculator-8292887/",
+    "download": "https://images.pexels.com/photos/8292887/pexels-photo-8292887.jpeg?auto=compress&cs=tinysrgb&w=960",
+    "creator": "RDNE Stock project",
+    "alt": "Financial advisor discussing documents and calculations with clients",
+    "license": "https://www.pexels.com/license/",
+    "bytes": 93999
+  },
+  "research-institutions": {
+    "file": "research-institutions.jpg",
+    "source": "https://www.pexels.com/photo/scientists-experimenting-in-the-laboratory-9243748/",
+    "download": "https://images.pexels.com/photos/9243748/pexels-photo-9243748.jpeg?auto=compress&cs=tinysrgb&w=960",
+    "creator": "Mikhail Nilov",
+    "alt": "Scientists working with a microscope and laboratory samples",
+    "license": "https://www.pexels.com/license/",
+    "bytes": 72079
+  },
+  "telecom": {
+    "file": "telecom.jpg",
+    "source": "https://www.pexels.com/photo/it-technician-working-in-data-center-server-room-37605911/",
+    "download": "https://images.pexels.com/photos/37605911/pexels-photo-37605911.jpeg?auto=compress&cs=tinysrgb&w=960",
+    "creator": "panumas nikhomkhai",
+    "alt": "Network technician monitoring equipment in a server room",
+    "license": "https://www.pexels.com/license/",
+    "bytes": 97901
+  },
+  "transportation-hospitality": {
+    "file": "transportation-hospitality.jpg",
+    "source": "https://www.pexels.com/photo/hotel-reception-desk-attendant-in-lobby-36684286/",
+    "download": "https://images.pexels.com/photos/36684286/pexels-photo-36684286.jpeg?auto=compress&cs=tinysrgb&w=960",
+    "creator": "abdo alshreef",
+    "alt": "Hotel receptionist assisting guests at a front desk",
+    "license": "https://www.pexels.com/license/",
+    "bytes": 60391
+  }
+}

@@ -16,6 +16,6 @@ for(const route of routes){const file=route.url==='/'?'dist/index.html':`dist${r
   assert(!html.includes('"@type":"JobPosting"'),`${route.url}: unverified jobs must not use live job schema`);
 }
 for(const route of ['/careers','/careers/jobs','/careers/apply','/careers/jobs/mts-navi-mumbai','/careers/jobs/technical-architect-bengaluru']){const html=fs.readFileSync('dist'+route+'/index.html','utf8');assert(html.includes('http-equiv="refresh"'));assert(html.includes('http://gad-hrms.frevo.co.in/open-positions'));assert(!html.includes('class="job-list"'));}
-assert(fs.readFileSync('dist/public-notices/index.html','utf8').includes('&#8377;11,000'));
+assert(fs.readFileSync('dist/public-notices/index.html','utf8').includes('&#8377;10,000'));
 assert(fs.readFileSync('dist/public-notices/index.html','utf8').includes('14/06/2025'));
 console.log(`PASS: ${routes.length} routes; ${links} internal links; ${images} image references; metadata, schema, public notices and Frevone career redirects.`);

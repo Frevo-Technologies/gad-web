@@ -1,12 +1,12 @@
-﻿import {test,expect} from '@playwright/test';
+import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 test.beforeEach(async({page})=>{await page.addInitScript(()=>sessionStorage.setItem('ga-intro-seen','1'));});
 test('customer layouts, removals, ribbon and keyboard card controls',async({page})=>{
  await page.goto('/');await expect(page.locator('html')).toHaveAttribute('data-theme','fresh');
  const toggle=page.locator('[data-sector-toggle]').first();await toggle.focus();await page.keyboard.press('Enter');await expect(toggle).toHaveAttribute('aria-expanded','true');await page.keyboard.press('Escape');await expect(toggle).toHaveAttribute('aria-expanded','false');
- const ribbon=page.locator('.client-ribbon-window');await ribbon.scrollIntoViewIfNeeded();await page.mouse.move(0,0);await page.locator('h1').evaluate(e=>{e.tabIndex=-1;e.focus({preventScroll:true});});
+ const ribbon=page.locator('.client-ribbon:not(.award-ribbon) .client-ribbon-window');await ribbon.scrollIntoViewIfNeeded();await page.mouse.move(0,0);await page.locator('h1').evaluate(e=>{e.tabIndex=-1;e.focus({preventScroll:true});});
  await expect.poll(()=>ribbon.evaluate(e=>e.scrollLeft)).toBeGreaterThan(0);
- await page.locator('[data-ribbon-pause]').click();const position=await ribbon.evaluate(e=>e.scrollLeft);await page.waitForTimeout(150);expect(await ribbon.evaluate(e=>e.scrollLeft)).toBe(position);
+ await page.locator('.client-ribbon:not(.award-ribbon) [data-ribbon-pause]').click();const position=await ribbon.evaluate(e=>e.scrollLeft);await page.waitForTimeout(150);expect(await ribbon.evaluate(e=>e.scrollLeft)).toBe(position);
  await page.goto('/about/our-team');await expect(page.locator('.hr-directory .person-card')).toHaveCount(0);await expect(page.locator('.hr-directory img,.hr-directory .linkedin-link,#delivery,.team-grid')).toHaveCount(0);
  await page.goto('/about/leadership');await expect(page.locator('.leadership-compact .person-card')).toHaveCount(6);
  await page.goto('/services');await expect(page.locator('main')).not.toContainText('Payroll & workforce administration');await expect(page.locator('a[href*="hrm-consulting"],#delivery')).toHaveCount(0);
