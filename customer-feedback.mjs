@@ -1,16 +1,6 @@
-﻿const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
-const drawings=[
-'<path d="M35 85 100 45l65 40H35zm12 12v66m35-66v66m36-66v66m35-66v66M28 175h144"/>',
-'<path d="m20 80 80-35 80 35-80 35zm30 15v50q50 35 100 0V95m30-15v65"/>',
-'<rect x="45" y="40" width="110" height="135" rx="8"/><path d="M90 60h20v20h20v20h-20v20H90v-20H70V80h20zm-20 85h20m20 0h20"/>',
-'<path d="m115 25-65 90h45l-10 70 65-100h-45z"/>',
-'<path d="M25 170V90l50 25V75l50 30V55h45v115zM45 140h10m35 0h10m35 0h10"/>',
-'<path d="m35 80 65-40 65 40H35zm15 15v60m35-60v60m30-60v60m30-60v60M30 170h140"/>',
-'<path d="M75 35h50m-40 0v65l-45 65q-5 15 15 15h90q20 0 15-15l-45-65V35M65 135h70"/>',
-'<path d="M100 80v100m-30 0h60M70 65q-30 30 0 60m60-60q30 30 0 60M45 40q-55 55 0 110m110-110q55 55 0 110"/><circle cx="100" cy="90" r="12"/>',
-'<rect x="45" y="35" width="110" height="130" rx="20"/><path d="M55 95h90M75 45v45m50-45v45M65 165l-15 20m85-20 15 20"/><circle cx="70" cy="135" r="7"/><circle cx="130" cy="135" r="7"/>'
-];
-export function industryCards(items){return `<div class="sector-cards">${items.map((x,i)=>`<article class="sector-card"><div class="sector-flipper"><div class="sector-front"><svg viewBox="0 0 200 200" role="img" aria-label="${escape(x.name)} illustration">${drawings[i%drawings.length]}</svg><span class="eyebrow">SECTOR ${String(i+1).padStart(2,'0')}</span><h3>${x.name}</h3><p>${x.desc}</p></div><div class="sector-back"><h3>${x.name}</h3><p>${x.desc}</p><p class="small">Organizations in our portfolio</p><ul>${x.clients.slice(0,3).map(n=>`<li>${escape(n)}</li>`).join('')}</ul></div></div><div class="sector-actions"><button type="button" class="text-link" data-sector-toggle aria-expanded="false" aria-label="Show organizations for ${escape(x.name)}">View organizations</button><a class="text-link" href="/industries/${x.slug}">See more &nearr;</a></div></article>`).join('')}</div>`;}
+import {industryImages} from './industry-images.mjs';
+const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
+export function industryCards(items){return `<div class="sector-cards">${items.map((x,i)=>`<article class="sector-card"><div class="sector-flipper"><div class="sector-front"><img class="sector-photo" src="/assets/industries/${industryImages[x.slug].file}" alt="${escape(industryImages[x.slug].alt)}" loading="lazy" decoding="async" width="960" height="640"><span class="eyebrow">SECTOR ${String(i+1).padStart(2,'0')}</span><h3>${x.name}</h3><p>${x.desc}</p></div><div class="sector-back"><h3>${x.name}</h3><p>${x.desc}</p><p class="small">Organizations in our portfolio</p><ul>${x.clients.slice(0,3).map(n=>`<li>${escape(n)}</li>`).join('')}</ul></div></div><div class="sector-actions"><button type="button" class="text-link" data-sector-toggle aria-expanded="false" aria-label="Show organizations for ${escape(x.name)}">View organizations</button><a class="text-link" href="/industries/${x.slug}">See more &nearr;</a></div></article>`).join('')}</div>`;}
 export function applyFeedback(pages,{process,cta,certs,innerHero}){
  for(const p of pages){
   if(p.url!=='/')p.body=p.body.replaceAll(process(),'');

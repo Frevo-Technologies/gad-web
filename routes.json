@@ -56,7 +56,7 @@
   },
   {
     "url": "/about/our-team",
-    "title": "HR Team",
+    "title": "Our Team",
     "noindex": false
   },
   {
@@ -283,5 +283,10 @@
     "url": "/cookie-policy",
     "title": "Cookie Policy",
     "noindex": true
+  },
+  {
+    "url": "/legal",
+    "title": "Legal",
+    "noindex": false
   }
 ]

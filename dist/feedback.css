@@ -92,21 +92,15 @@ body .compact-certifications{padding-block:14px;background:#f2f7f8;border-block:
 .portrait-pending{display:flex;align-items:center;justify-content:center;flex-direction:column;background:linear-gradient(135deg,#e1f2ee,#f6faf9);gap:16px}.portrait-pending>span{font-size:50px;letter-spacing:3px;color:#527d7c}.portrait-pending figcaption{position:static;color:#486a69;font-size:11px;background:transparent}
 .department-grid{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.profile-email{overflow-wrap:anywhere}
 @media(max-width:600px){.compact-certifications .cert-slide{flex-basis:116px;width:116px;padding-inline:6px}.compact-certifications .cert-slide img{height:38px;width:60px}.compact-certifications .carousel-controls{gap:6px}.compact-certifications .carousel-controls button{padding:4px}.compact-certifications .carousel-controls h2{font-size:9px;letter-spacing:.8px}}
-/* Leadership hierarchy: MD above four Chiefs; Director has a separate card. */
-.people-grid.leadership-compact{grid-template-columns:repeat(4,minmax(0,1fr));gap:44px 22px;align-items:stretch}
-.leadership-compact .person-card{position:relative;overflow:visible;order:1;background:#fff;border:1px solid #8aafbd;border-radius:10px;text-align:center}
-.leadership-compact .person-card:first-child{order:0;grid-column:1/-1;width:300px;max-width:100%;justify-self:center;background:#203d64;color:#fff}
-.leadership-compact .person-card:first-child .person-role,.leadership-compact .person-card:first-child .profile-email,.leadership-compact .person-card:first-child .linkedin-link{color:#fff}
-.leadership-compact .person-card:nth-child(2){order:2;grid-column:1/-1;width:300px;max-width:100%;justify-self:center}
-.leadership-compact .person-portrait{height:80px;width:80px;margin:18px auto 0;border-radius:50%;overflow:hidden}
+/* Leadership: equal profile cards in the user's specified reading order. */
+.people-grid.leadership-compact{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:stretch}
+.leadership-compact .person-card{background:#fff;border:1px solid #dbe7e5;border-radius:12px;text-align:left;box-shadow:0 8px 25px #133e4406}
+.leadership-compact .person-portrait{height:80px;width:80px;margin:26px 26px 0;border-radius:50%;overflow:hidden}
 .leadership-compact .person-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
 .leadership-compact .portrait-pending>span{font-size:24px}.leadership-compact .portrait-pending figcaption{display:none}
-.leadership-compact .person-copy{padding:16px}.leadership-compact .person-copy h3{font-size:17px;margin-bottom:8px}.leadership-compact .person-role{font-size:12px;min-height:36px}.leadership-compact .linkedin-link{font-size:11px}.leadership-compact .person-card:first-child:after{content:'';position:absolute;left:50%;bottom:-23px;height:22px;border-left:1px solid #668ca8}
-.leadership-compact .person-card:nth-child(n+3):before{content:'';position:absolute;left:50%;top:-23px;height:22px;border-left:1px solid #668ca8}
-.leadership-compact .person-card:nth-child(n+3):after{content:'';position:absolute;top:-23px;left:-12px;right:-12px;border-top:1px solid #668ca8}
-.leadership-compact .person-card:nth-child(3):after{left:50%}.leadership-compact .person-card:last-child:after{right:50%}
-@media(max-width:1000px){.people-grid.leadership-compact{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.leadership-compact .person-card:before,.leadership-compact .person-card:after{display:none}}
-@media(max-width:600px){.people-grid.leadership-compact{grid-template-columns:1fr}.leadership-compact .person-card,.leadership-compact .person-card:first-child,.leadership-compact .person-card:nth-child(2){width:100%}}
+.leadership-compact .person-copy{padding:24px 26px}.leadership-compact .person-copy h3{font-size:21px;margin-bottom:8px}.leadership-compact .person-role{font-size:13px;min-height:36px}.leadership-compact .linkedin-link{font-size:11px}
+@media(max-width:1000px){.people-grid.leadership-compact{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.people-grid.leadership-compact{grid-template-columns:1fr}}
 .compact-certifications .cert-track{margin:0}.compact-certifications .cert-slide{gap:0}.compact-certifications .carousel-controls{flex-direction:row}.compact-certifications .cert-slide>span{font-size:9px;color:#506870}
 /* Label sits outside the badge strip; controls remain beside it. */
 body .compact-certifications{background:transparent;border:0;padding-block:18px}
@@ -131,3 +125,67 @@ body[data-route='/'] .hero-photo>img.scroll-depth-photo{scale:1;translate:none}
 .leadership-compact img[src$="garima-arora.jpeg"]{object-position:50% 24%}
 .service-photo-section{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}.service-photo-section figure{margin:0}.service-photo-section img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:16px}.service-photo-section figcaption{font-size:10px;color:#566b6e;margin-top:8px}.service-photo-section h2{font-size:clamp(27px,3vw,40px);line-height:1.2}.service-photo-section p{font-size:15px;line-height:1.8}.credential-update{padding-block:24px}.footer-intro>p{max-width:500px}
 @media(max-width:760px){.service-photo-section{grid-template-columns:1fr;gap:22px}.service-photo-section h2{font-size:29px}}
+
+/* Reference treatment: workplace photography across the entire hero with a charcoal fade. */
+html[data-theme] body[data-route='/'] .home-hero{background-color:#171b1d;background-image:linear-gradient(90deg,rgba(15,19,22,.94) 0%,rgba(15,19,22,.82) 38%,rgba(15,19,22,.46) 72%,rgba(15,19,22,.32) 100%),url('/assets/hero-office-background.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+html[data-theme] .home-hero .hero-copy{background:transparent}
+html[data-theme] .home-hero .hero-copy h1{color:#fff}
+html[data-theme] .home-hero .hero-copy h1 em{color:#c4f0e9}
+html[data-theme] .home-hero .hero-copy p{color:#e0e6e5}
+html[data-theme] .home-hero .hero-copy .eyebrow,html[data-theme] .home-hero .hero-tags,html[data-theme] .home-hero .hero-secondary{color:#e3eeeb}
+html[data-theme] .home-hero .hero-copy .eyebrow:before,html[data-theme] .home-hero .hero-tags i{background:#b4d7cf}
+html[data-theme] .home-hero .hero-secondary{border-color:#a8bab5}
+html[data-theme] .home-hero .hero-side{color:#d7e6e1}
+@media(max-width:760px){html[data-theme] body[data-route='/'] .home-hero{background-image:linear-gradient(180deg,rgba(15,19,22,.9) 0%,rgba(15,19,22,.78) 45%,rgba(15,19,22,.45) 100%),url('/assets/hero-office-background.jpg');background-position:60% center}}
+.service-row{transition:background-color .3s,color .3s,padding .3s}
+html[data-theme] .service-row:is(:hover,:focus-visible){background:#087577;color:#fff}
+html[data-theme] .service-row:is(:hover,:focus-visible) :is(h3,p,.icon,.row-number,.round-arrow){color:#fff}
+html[data-theme] body[data-route='/services/contract-staffing'] .pill:is(:hover,:focus-visible){background:#133e44;border-color:#133e44;color:#fff}
+body[data-route='/services/contract-staffing'] .pill{transition:background-color .3s,color .3s,border-color .3s}
+@media(prefers-reduced-motion:reduce){.service-row,body[data-route='/services/contract-staffing'] .pill{transition:none}}
+
+/* Department directory: quiet surfaces and a readable staff roster on the reverse. */
+.department-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:stretch}
+.department-card{display:block;min-width:0;padding:0;border:1px solid #d8e5e2;border-radius:12px;background:#fff;color:#163f43;font:400 14px/1.45 var(--font);text-align:left;perspective:1400px;box-shadow:0 8px 30px #143f4407;cursor:pointer}
+.department-flipper{display:grid;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.department-front,.department-back{grid-area:1/1;display:flex;flex-direction:column;min-height:450px;padding:30px;backface-visibility:hidden;border-radius:11px;overflow-wrap:anywhere}
+.department-front{position:relative;justify-content:center;background:linear-gradient(160deg,#fff 65%,#f0f7f5);border-top:3px solid #17817d}
+.department-index{position:absolute;top:30px;font-size:10px;font-weight:700;letter-spacing:.16em;color:#63817e}
+.department-title{display:block;font-size:29px;font-weight:600;line-height:1.2;letter-spacing:-.035em;max-width:260px}
+.department-count{display:block;margin-top:15px;color:#647e7c;font-size:13px}
+.department-prompt{position:absolute;bottom:28px;left:30px;right:30px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #dde8e4;padding-top:18px;font-size:12px;font-weight:600;color:#1a6b68}
+.department-prompt>span{font-size:22px}
+.department-back{transform:rotateY(180deg);visibility:hidden;background:#f7fbfa;color:#163f43;justify-content:center;gap:0}
+.department-person{display:block;padding:11px 0;border-bottom:1px solid #dce9e5}.department-person:last-child{border-bottom:0}
+.department-person strong{display:block;font-size:15px;font-weight:600;line-height:1.4}.department-person>span{display:block;font-size:12px;line-height:1.5;color:#526f6b;margin-top:2px}
+.department-card.is-flipped .department-flipper{transform:rotateY(180deg)}
+.department-card.is-flipped .department-front{visibility:hidden}.department-card.is-flipped .department-back{visibility:visible}
+.department-card:focus-visible{outline:3px solid #087f80;outline-offset:5px}
+@media(max-width:1000px){.department-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.department-cards{grid-template-columns:1fr}.department-front,.department-back{padding:26px;min-height:440px}.department-title{font-size:30px}}
+.award-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:30px}
+.award-gallery .award-card{padding:0;overflow:hidden;min-width:0;scroll-margin-top:140px}
+.award-image{display:block;background:#f6f8f7;padding:14px}
+.award-image img{display:block;width:100%;height:260px;object-fit:contain}
+.award-copy{padding:24px}.award-copy h3{font-size:23px;line-height:1.3}.award-copy p{font-size:14px;overflow-wrap:anywhere}
+.award-ribbon-section{padding-block:14px}.award-ribbon-section>.section-heading{align-items:center;margin-bottom:10px;gap:12px}
+.award-ribbon-section h2{font:700 14px var(--font);margin:0}.award-ribbon-section .text-link{font-size:11px}
+.award-ribbon .award-slide{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px;background:#f1f9f8;border-radius:8px;text-decoration:none}
+.award-slide img{width:100%;height:90px;object-fit:contain}.award-slide span{font-size:10px;line-height:1.4;text-align:center;color:#133e44}
+.award-slide:focus-visible{outline:3px solid #087f80;outline-offset:-3px}
+@media(max-width:1000px){.award-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.award-gallery{grid-template-columns:1fr}.award-image img{height:300px}}
+@media(max-width:380px){.department-cards{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.department-flipper{transition:none}}
+
+.award-ribbon-section>.section-heading{display:flex;flex-direction:row}
+.award-ribbon-section>.section-heading h2{font-size:14px;line-height:1.4;margin:0}
+.award-ribbon .award-slide{height:126px;min-height:126px}
+.award-ribbon .award-slide img{height:60px}
+
+.sector-front .sector-photo{display:block;width:calc(100% + 48px);max-width:none;height:200px;object-fit:cover;object-position:center 20%;margin:-24px -24px 24px;border-radius:0}
+.sector-front .sector-photo[src*='infrastructure-manufacturing']{object-position:65% 35%}
+.department-flipper{height:100%}
+@media(max-width:760px){.sector-front .sector-photo{height:190px}}
+/* These official wordmarks are white; give them contrast without recolouring assets. */
+.client-logo-stage:has(img[src$='/ignou.png']),.client-logo-stage:has(img[src$='/beml.png']){background:#173b4b}
