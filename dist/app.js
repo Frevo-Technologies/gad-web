@@ -1,5 +1,5 @@
 (() => {
-  if(location.pathname.replace(/\/$/,'')==='/about/md-message'){location.replace('/about'+location.search+'#director-message');return;}
+  if(location.pathname.replace(/\/$/,'')==='/about/md-message'){location.replace('/about'+location.search);return;}
   const countMotion=matchMedia('(prefers-reduced-motion: reduce)');
   document.querySelectorAll('.impact-strip').forEach(strip=>{
     const counters=[...strip.querySelectorAll('[data-count-to]')];
@@ -182,8 +182,7 @@
       if(selected===office.id)return;
       selected=office.id;
       const frame=map.querySelector('.office-street-map');
-      frame.src='https://maps.google.com/maps?q='+encodeURIComponent(office.address)+'&ll=22.5,79&z=4&output=embed';
-      frame.title=office.city+' office street map';
+      if(frame){frame.src='https://maps.google.com/maps?q='+encodeURIComponent(office.address)+'&ll=22.5,79&z=4&output=embed';frame.title=office.city+' office street map';}
       map.querySelector('[data-street-title]').textContent=office.city+' \u00b7 '+office.type;
       map.querySelector('[data-street-address]').textContent=office.address;
       map.querySelector('[data-street-directions]').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(office.address);
