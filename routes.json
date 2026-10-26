@@ -40,6 +40,11 @@
     "noindex": false
   },
   {
+    "url": "/services/it-technical-manpower",
+    "title": "IT & Technical Manpower",
+    "noindex": false
+  },
+  {
     "url": "/about",
     "title": "Our Story",
     "noindex": false
@@ -76,7 +81,7 @@
   },
   {
     "url": "/about/certifications",
-    "title": "Certifications & Awards",
+    "title": "Certificates & Awards",
     "noindex": false
   },
   {
@@ -191,13 +196,13 @@
   },
   {
     "url": "/careers",
-    "title": "Jobs & Applications",
-    "noindex": true
+    "title": "Careers",
+    "noindex": false
   },
   {
     "url": "/careers/jobs",
-    "title": "Jobs & Applications",
-    "noindex": true
+    "title": "Job Openings",
+    "noindex": false
   },
   {
     "url": "/careers/jobs/icmr-nihr-project-roles",
@@ -288,5 +293,20 @@
     "url": "/legal",
     "title": "Legal",
     "noindex": false
+  },
+  {
+    "url": "/resources",
+    "title": "Resources",
+    "noindex": false
+  },
+  {
+    "url": "/resources/archived-notices",
+    "title": "Archived Notices",
+    "noindex": false
+  },
+  {
+    "url": "/disclaimer",
+    "title": "Website Disclaimer",
+    "noindex": true
   }
 ]

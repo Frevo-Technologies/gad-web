@@ -2,9 +2,9 @@ import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 test.beforeEach(async({page})=>{await page.addInitScript(()=>sessionStorage.setItem('ga-intro-seen','1'));await page.emulateMedia({reducedMotion:'reduce'});});
 test('confirmed story, fee, facility and FAQ content',async({page})=>{
- await page.goto('/about');await expect(page.locator('h1')).toHaveText('Two decades of putting people first.');await expect(page.locator('#director-message')).toContainText('Garima Arora');expect(await page.locator('#director-message').evaluate(e=>e.previousElementSibling.classList.contains('inner-hero'))).toBe(true);await expect(page.locator('nav a[href="/about#director-message"]')).toHaveCount(0);
- await page.goto('/about/md-message');await expect(page).toHaveURL(/\/about#director-message$/);
- await page.goto('/');await expect(page.locator('.placement-notice')).toContainText('10,000');await expect(page.locator('#delivery')).toHaveCount(1);await expect(page.locator('.cert-carousel')).toHaveCount(0);
+ await page.goto('/about');await expect(page.locator('h1')).toHaveText('Two decades of putting people first.');await expect(page.locator('#director-message')).toHaveCount(0);await expect(page.locator('nav a[href="/about#director-message"]')).toHaveCount(0);
+ await page.goto('/about/md-message');await expect(page).toHaveURL(/\/about$/);
+ await page.goto('/');await expect(page.locator('.placement-notice')).toHaveCount(0);await expect(page.locator('#delivery')).toHaveCount(1);await expect(page.locator('.cert-carousel')).toHaveCount(0);
  await page.goto('/services/facility-management');await expect(page.locator('.facility-catalogue article')).toHaveCount(11);await expect(page.locator('.facility-catalogue')).toContainText('Swimming pool lifeguards');
  await page.goto('/faqs');await expect(page.locator('main a[href="/contact"]')).toHaveCount(1);
  await page.goto('/contact');await expect(page.locator('input[name="company"]')).not.toHaveAttribute('required','');await expect(page.locator('.department-grid article')).toHaveCount(5);

@@ -31,11 +31,21 @@ test('leadership uses the requested two rows of three equal cards',async({page})
  const cards=await page.locator('.leadership-compact .person-card').all();const boxes=await Promise.all(cards.map(card=>card.boundingBox()));
  for(let i=1;i<3;i++)expect(boxes[i].y).toBe(boxes[0].y);for(let i=4;i<6;i++)expect(boxes[i].y).toBe(boxes[3].y);expect(boxes[3].y).toBeGreaterThan(boxes[0].y);await page.screenshot({path:'artifacts/leadership-refreshed.png',fullPage:true});
  expect(await cards[0].evaluate(el=>getComputedStyle(el,'::after').content)).toMatch(/none|normal/);
+ for(const width of [1440,390]){
+  await page.setViewportSize({width,height:1000});
+  for(const [name,file] of [['S.K. Tandon','sk-tandon.jpeg'],['Archeesha Sharma','archeesha-sharma.jpeg'],['Nidhi Anand','nidhi-anand.jpeg']]){
+   const card=page.locator('.leadership-compact .person-card').filter({has:page.getByRole('heading',{name,exact:true})});const image=card.getByRole('img',{name,exact:true});
+   await expect(image).toHaveCSS('object-fit','cover');await expect(image).toHaveAttribute('src','/assets/'+file);await image.scrollIntoViewIfNeeded();await expect.poll(()=>image.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);await expect(card.locator('.portrait-pending')).toHaveCount(0);
+  }
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+  await page.locator('.leadership-compact').screenshot({path:`artifacts/leadership-portraits-${width}.png`});
+ }
+
 });
 test('all seven supplied images load, retain labels/dates, and link to full-size originals',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});
  for(const width of [390,1440]){
-  await page.setViewportSize({width,height:1000});await page.goto('/about/certifications');await expect(page.locator('.award-gallery .award-card')).toHaveCount(7);
+  await page.setViewportSize({width,height:1000});await page.goto('/about/certifications');await expect(page.locator('h1')).toHaveText('Certificates & Awards');await expect(page.locator('.credential-update,.credential-gallery')).toHaveCount(0);await expect(page.locator('.award-gallery .award-card')).toHaveCount(7);await expect(page.locator('#iiea-2023 .award-copy>.eyebrow')).toHaveText('CERTIFICATE OF ACHIEVEMENT');
   await expect(page.locator('#media-excellence-2026 time')).toHaveText('21 February 2026');await expect(page.locator('#honorary-business-administration-2023')).toContainText('Honorary award');
   for(const img of await page.locator('.award-gallery img').all()){await img.scrollIntoViewIfNeeded();await expect.poll(()=>img.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);}
   const full=await page.locator('#iiea-2023 .award-image').getAttribute('href');expect((await page.request.get(full)).ok()).toBe(true);

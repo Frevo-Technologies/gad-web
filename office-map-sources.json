@@ -1,0 +1,125 @@
+{
+  "description": "One-time cached office-area geocoding for the 24 October change request. Coordinates locate a neighborhood, city, road or campus; they are not confirmed building entrances. Written company-provided addresses remain unchanged.",
+  "date": "2026-10-25",
+  "provider": "Nominatim / OpenStreetMap",
+  "license": "ODbL 1.0",
+  "attribution": "\u00a9 OpenStreetMap contributors",
+  "licenseUrl": "https://www.openstreetmap.org/copyright",
+  "leaflet": {
+    "version": "1.9.4",
+    "source": "https://unpkg.com/leaflet@1.9.4/dist/",
+    "license": "BSD-2-Clause; dist/assets/leaflet/LICENSE.txt"
+  },
+  "offices": [
+    {
+      "id": "ghaziabad",
+      "query": "Indirapuram",
+      "source": "https://nominatim.openstreetmap.org/search?q=Indirapuram&format=jsonv2&countrycodes=in&limit=1",
+      "coordinates": [
+        28.6380466,
+        77.3644168
+      ],
+      "precision": "neighbourhood",
+      "matchedPlace": "Windsor Park, Indirapuram, Ghaziabad, Uttar Pradesh, 201001, India"
+    },
+    {
+      "id": "delhi",
+      "query": "Hargovind Enclave, Delhi",
+      "source": "https://nominatim.openstreetmap.org/search?q=Hargovind+Enclave%2C+Delhi&format=jsonv2&countrycodes=in&limit=1",
+      "coordinates": [
+        28.6478898,
+        77.3005006
+      ],
+      "precision": "suburb",
+      "matchedPlace": "Hargovind Enclave, Shahdara South, Delhi, East Delhi, Delhi, India"
+    },
+    {
+      "id": "mumbai",
+      "query": "Goregaon, Mumbai",
+      "source": "https://nominatim.openstreetmap.org/search?q=Goregaon%2C+Mumbai&format=jsonv2&countrycodes=in&limit=1",
+      "coordinates": [
+        19.1648688,
+        72.8495492
+      ],
+      "precision": "railway",
+      "matchedPlace": "Goregaon, Station Road, Jawahar Nagar, Goregaon East, P/S Ward, Mumbai Zone 4, Mumbai, Mumbai Suburban District, Maharashtra, 400062, India"
+    },
+    {
+      "id": "lucknow",
+      "query": "Lucknow",
+      "source": "https://nominatim.openstreetmap.org/search?q=Lucknow&format=jsonv2&countrycodes=in&limit=1",
+      "coordinates": [
+        26.8381,
+        80.9346001
+      ],
+      "precision": "city",
+      "matchedPlace": "Lucknow, Uttar Pradesh, 226027, India"
+    },
+    {
+      "id": "gwalior",
+      "query": "Gwalior",
+      "source": "https://nominatim.openstreetmap.org/search?q=Gwalior&format=jsonv2&countrycodes=in&limit=1",
+      "coordinates": [
+        26.2037247,
+        78.1573628
+      ],
+      "precision": "city",
+      "matchedPlace": "Gwalior, Gird Tahsil, Gwalior, Madhya Pradesh, 474001, India"
+    },
+    {
+      "id": "chennai",
+      "query": "Madipakkam, Chennai",
+      "source": "https://nominatim.openstreetmap.org/search?q=Madipakkam%2C+Chennai&format=jsonv2&countrycodes=in&limit=1",
+      "coordinates": [
+        12.9611348,
+        80.2001292
+      ],
+      "precision": "suburb",
+      "matchedPlace": "Madipakkam, Zone 14 Perungudi, Chennai, Chennai Metropolitan Area, Sholinganallur, Chennai District, Tamil Nadu, 600091, India"
+    },
+    {
+      "id": "guwahati",
+      "query": "Ulubari, Guwahati",
+      "source": "https://nominatim.openstreetmap.org/search?q=Ulubari%2C+Guwahati&format=jsonv2&countrycodes=in&limit=1",
+      "coordinates": [
+        26.175003,
+        91.7576927
+      ],
+      "precision": "suburb",
+      "matchedPlace": "Ulubari, Guwahati, Kamrup Metropolitan, Assam, 781007, India"
+    },
+    {
+      "id": "kolkata",
+      "query": "Gariahat Road, Kolkata",
+      "source": "https://nominatim.openstreetmap.org/search?q=Gariahat+Road%2C+Kolkata&format=jsonv2&countrycodes=in&limit=1",
+      "coordinates": [
+        22.5274905,
+        88.3661789
+      ],
+      "precision": "primary",
+      "matchedPlace": "Gariahat Road, Ballygunge, Kolkata, Greater Kolkata, Kolkata, West Bengal, 700019, India"
+    },
+    {
+      "id": "bhopal",
+      "query": "Indian Institute of Science Education and Research Bhopal",
+      "source": "https://nominatim.openstreetmap.org/search?q=Indian+Institute+of+Science+Education+and+Research+Bhopal&format=jsonv2&countrycodes=in&limit=1",
+      "coordinates": [
+        23.2885613,
+        77.275686
+      ],
+      "precision": "amenity",
+      "matchedPlace": "Indian Institute of Science Education and Research, Bhopal, Bhopal Bypass Rd, Bhaunri, Bhopal, Huzur Tahsil, Bhopal, Madhya Pradesh, 462066, India"
+    },
+    {
+      "id": "indore",
+      "query": "Indian Institute of Technology Indore",
+      "source": "https://nominatim.openstreetmap.org/search?q=Indian+Institute+of+Technology+Indore&format=jsonv2&countrycodes=in&limit=1",
+      "coordinates": [
+        22.5269276,
+        75.9262066
+      ],
+      "precision": "amenity",
+      "matchedPlace": "Indian Institute Of Technology Indore, Sports road, Simrol, Mhow Tahsil, Indore, Madhya Pradesh, 453485, India"
+    }
+  ]
+}

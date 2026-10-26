@@ -12,8 +12,11 @@ export function applyContentDocument(pages,{innerHero}){
 
   // No certificates have yet been supplied with confirmed current validity.
   p.body=p.body.replace(/<section class="cert-section compact-certifications"[\s\S]*?<\/section>/,awardsRibbon());
-  if(p.url==='/about/certifications')p.body=p.body.replace(/<div class="credential-gallery">[\s\S]*?<\/div><p class="small muted">[\s\S]*?<\/p>/,'<div class="credential-update"><h2>Current certifications</h2><p>Certificate details will be displayed after their current validity and scope have been confirmed.</p></div>');
-  if(p.url==='/about/certifications')p.body=p.body.replace(/<section class="wrap section compact-top">[\s\S]*?<\/section>/,awardsGallery())+awardsRibbon();
+  if(p.url==='/about/certifications'){
+   p.title='Certificates & Awards';
+   p.description='Certificates, awards and honorary recognition received by GA Digital Web Word Pvt. Ltd. and its leadership.';
+   p.body=innerHero('Certificates &amp; Awards','Certificates, awards and honorary recognition, in one place.','CERTIFICATES &amp; AWARDS')+awardsGallery();
+  }
   if(p.url==='/clients/testimonials')p.body=innerHero('Client experiences','Approved client feedback will be shared here when available.','TESTIMONIALS');
   if(p.url==='/about'){
    p.body=p.body.replace(/<section class="inner-hero">[\s\S]*?<\/section>/,innerHero('Two decades of putting people first.','Our Story','OUR STORY'));
@@ -32,9 +35,6 @@ export function applyContentDocument(pages,{innerHero}){
    '/industries/education':['workforce-training','Illustrative staff participating in a training session','Supporting places of learning.','Administrative, technical and facility teams help institutions manage their everyday work.']
   };
   if(photos[p.url]){const end=p.body.indexOf('</section>')+10;p.body=p.body.slice(0,end)+photo(...photos[p.url])+p.body.slice(end);}
-  // The document requests the legal name at first body mention, then the short name.
-  let mentioned=false;
-  p.body=p.body.split(/(<[^>]*>)/g).map(part=>part.startsWith('<')?part:part.replace(/GA Digital(?: Web Word)?(?: Pvt\. Ltd\.)?/g,()=>{if(!mentioned){mentioned=true;return 'GA Digital Web Word Pvt. Ltd.';}return 'GA Digital';})).join('');
   if(p.url==='/about/our-team')p.title='Our Team';
  }
 }

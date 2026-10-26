@@ -18,47 +18,47 @@ export const testimonialSamples=[
 ];
 
 export const leadershipMembers=[managingDirector,
- {name:'S.K. Tandon',role:'Director',email:null,linkedin:null},
+ {name:'S.K. Tandon',photo:'sk-tandon.jpeg',role:'Director',email:null,linkedin:null},
  {name:'Sharat Mishra',role:'Chief Executive Officer',email:'ceo@gadigital.in',linkedin:null},
  {name:'Manish Dutt Sharma',role:'Chief Financial Officer',email:'cfo@gadigital.in',linkedin:null},
- {name:'Archeesha Sharma',role:'Chief Operating Officer',email:'coo@gadigital.in',linkedin:null},
- {name:'Nidhi Anand',role:'Chief Marketing Officer',email:'cmo@gadigital.in',linkedin:null}
+ {name:'Archeesha Sharma',photo:'archeesha-sharma.jpeg',role:'Chief Operating Officer',email:'coo@gadigital.in',linkedin:null},
+ {name:'Nidhi Anand',photo:'nidhi-anand.jpeg',role:'Chief Marketing Officer',email:'cmo@gadigital.in',linkedin:null}
 ];
 
 // Department staff transcribed from Org_Chart_Diagram.pptx.
 // Reporting executives appear in Leadership rather than being repeated in every team.
 // Ajay and Kajal have no surnames in the supplied chart; do not infer them.
 export const departmentManagers=[
- {department:'Tender',members:[
+ {department:'Tender',email:'tender@gadigital.in',handling:['Nidhi Anand'],members:[
   {name:'Dinesh Kumar',position:'Chief Tender Manager'},
   {name:'Anuj Gupta',position:'Tender Manager'},
   {name:'Anuj Sharma',position:'Tender Specialist'},
   {name:'Ashish Arora',position:'Sr. Tender Executive'},
   {name:'Rohit Singh',position:'Tender Executive'},
-  {name:'Sweta Nishad',position:'Jr. Tender Executive'}
+  {name:'Ritu',position:'Jr. Tender Executive'}
  ]},
- {department:'HR',members:[
+ {department:'HR',email:'hr@gadigital.in',handling:['Archeesha Sharma'],members:[
   {name:'Ajay',position:'Chief HR Manager'},
   {name:'Shweta Kanojia',position:'HR Manager'},
   {name:'Harsh Kumar',position:'HR Manager'},
   {name:'Aarzoo Ahmed',position:'HR Executive'}
  ]},
- {department:'Compliance',members:[
+ {department:'Compliance',email:'compliance@gaidgital.in',handling:['Manish Dutt Sharma'],members:[
   {name:'Shrawan Gupta',position:'Chief Compliance Manager (PF)'},
-  {name:'Rohan Kohli',position:'Compliance Manager (ESIC)'},
   {name:'Kailash Chandra',position:'Chief Compliance Manager'},
+  {name:'Rohan Kohli',position:'Compliance Manager (ESIC)'},
   {name:'Niti Srivastava',position:'Compliance Executive'}
  ]},
- {department:'Finance & Account Section',members:[
+ {department:'Finance & Account Section',email:'accounts@gadigital.in',handling:['Manish Dutt Sharma'],members:[
   {name:'Vaishali Chauhan',position:'Chief Finance Manager'},
+  {name:'Prashant Aggarwal',position:'Chief Payroll Manager'},
   {name:'Shipra Garg',position:'Finance Manager'},
   {name:'Kajal',position:'Jr. Finance Manager'},
   {name:'Harshit Yadav',position:'Finance Manager'},
   {name:'Komal Pathak',position:'Jr. Finance Executive'},
-  {name:'Nitika Thukral',position:'Accounts Manager'},
-  {name:'Prashant Aggarwal',position:'Chief Payroll Manager'}
+  {name:'Nitika Thukral',position:'Accounts Manager'}
  ]},
- {department:'HRMS',members:[
+ {department:'HRMS',email:'hrms@gadigital.in',handling:['Manish Dutt Sharma','Archeesha Sharma'],members:[
   {name:'Shikha Dixit',position:'HR and Compliance Assistant Manager'}
  ]}
 ];
