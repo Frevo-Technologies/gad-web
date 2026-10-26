@@ -23,7 +23,7 @@ The other 31 client entries now have locally stored, verified logo/emblem assets
 ## Certifications and client stories
 
 - Supplied certificates, awards and honorary recognition now share one Certificates & Awards gallery. The separate empty certification section has been removed.
-- Fourteen testimonial drafts from the supplied review PDF are stored and available at the local-only `/review/client-testimonials` preview. Written client approval and final attribution are still needed before these become public endorsements.
+- All 14 supplied testimonials are now enabled for the website following the owner’s confirmation of client provenance and explicit publication authorisation on 26 October 2026. Supplied officer/organisation attributions are retained; signed client forms or individual names are not claimed.
 - Niranjan Sir’s decision on the future testimonial collection workflow.
 - Approved success stories/case studies with client permission, facts and outcomes, if these are to be published.
 
@@ -37,7 +37,7 @@ The other 31 client entries now have locally stored, verified logo/emblem assets
 
 - Correct client → supplied-designation mappings for each service, including C-DAC/IT. Old inferred sector references were removed. Neutral enquiry sections are in place until the approved mappings arrive.
 - Approved client success stories (client permission, engagement facts, dates and outcomes). Published recruitment context remains clearly distinguished from a verified success story.
-- Client sign-off on the 14 supplied draft testimonials, including any wording edits and final approved attribution. Drafts are transcribed with their suggested officer titles; no individual names or approvals are invented.
+- Testimonials: publication authorised by the website owner on 26 October 2026. All 14 are displayed on `/clients/testimonials`, with three-entry previews on Homepage and Clients. No further testimonial information is required for this release.
 - Ria’s approved company-wide Disclaimer text. A local, noindex `/disclaimer` information page and footer/legal links are in place; it is not a counsel-approved final legal document.
 - Confirm the supplied Compliance mailbox `compliance@gaidgital.in`: its domain spelling differs from the other department addresses. It is retained consistently rather than guessed.
 - IIT Indore’s company-confirmed postal address/PIN. IISER Bhopal already displays 462066. A geocoder campus match is not treated as a confirmed company mailing address.

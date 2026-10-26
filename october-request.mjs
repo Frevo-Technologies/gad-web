@@ -5,11 +5,11 @@ import {feeText,facilityGroups} from './confirmed-feedback.mjs';
 export const itService={slug:'it-technical-manpower',title:'IT & Technical Manpower',short:'IT & Technical Manpower',description:'Specialist people for software, infrastructure, data and technology leadership.',icon:'layers',source:'',capabilities:facilityGroups[10][2],challenge:'Build a team for your digital and IT operations.',approach:'Share the roles, qualifications, headcount and project requirements with our team.',faq:[]};
 const recruitment='/services/recruitment-head-hunting';
 const feeLink=`See <a href="${recruitment}#placement-service-fee">Placement Service Fee details on the Recruitment page</a>, or contact <a href="mailto:hr@gadigital.in">hr@gadigital.in</a> for clarification.`;
-const testimonials=testimonialSection(clientTestimonials);
+const testimonials=testimonialSection(clientTestimonials,{limit:3});
 const suppliedRoles=`<section class="wrap section supplied-designations"><span class="eyebrow">CLIENTS &amp; DESIGNATIONS</span><h2>Discuss a relevant workforce requirement.</h2><p>Contact our team for client references and the designations relevant to your requirement.</p><a class="text-link" href="mailto:tender@gadigital.in">Ask about client references &nearr;</a></section>`;
 // Normalize copy and accessible labels, while leaving paths and original archived records intact.
 export function normalizeCompanyHtml(html){
- const archive=[];html=html.replace(/<div class="notice-verbatim">[\s\S]*?<\/div>/g,m=>{archive.push(m);return `<!--original-archive-${archive.length-1}-->`;});
+ const archive=[];html=html.replace(/<div class="notice-verbatim">[\s\S]*?<\/div>|<blockquote\b[^>]*>[\s\S]*?<\/blockquote>/g,m=>{archive.push(m);return `<!--original-archive-${archive.length-1}-->`;});
  const legal=text=>text.replace(/\bGA Digital(?: Web (?:Word|World))?(?: Pvt\.? Ltd\.?)?(?:’s|'s)?/g,m=>company.name+(/(?:’s|'s)$/.test(m)?'’s':''));
  html=html.split(/(<[^>]*>)/g).map(part=>part.startsWith('<')?part.replace(/\b(alt|title|aria-label|content)="([^"]*)"/g,(_,a,v)=>`${a}="${legal(v)}"`):legal(part)).join('');
  return html.replace(/<!--original-archive-(\d+)-->/g,(_,i)=>archive[Number(i)]);
@@ -48,7 +48,7 @@ export function applyOctoberRequest(pages,{innerHero,articleCards,engagementCard
   if(p.url==='/services/outsourcing-training'||p.url==='/services/competence-building')p.body+=`<section class="wrap section training-provided"><span class="eyebrow">TRAINING PROVIDED</span><h2>Preparation for interviews and everyday work.</h2><div class="two-col"><article><h3>Interview preparation</h3><p>We prepare candidates for interviews so they arrive confident and ready for selection.</p></article><article><h3>Workplace soft skills</h3><p>Focused sessions cover communication, teamwork, professional conduct, workplace behaviour and confidence.</p></article></div><a class="text-link" href="mailto:hr@gadigital.in">Discuss training requirements &nearr;</a></section>`;
   if(p.url==='/clients')p.body+=successStories+testimonials;
   if(p.url==='/clients/case-studies'){p.body=innerHero('Client success stories','Explore published engagement context while approved client stories are prepared.','CLIENT EXPERIENCES')+successStories;}
-  if(p.url==='/clients/testimonials')p.body=innerHero('Client experiences','Feedback from the organisations we support.','TESTIMONIALS')+testimonials;
+  if(p.url==='/clients/testimonials')p.body=innerHero('Client experiences','Feedback from the organisations we support.','TESTIMONIALS')+testimonialSection(clientTestimonials);
   if(p.url==='/public-notices'){p.description='Recruitment information and access to archived public notices.';p.body=innerHero('Public notices','Recruitment information and earlier notices.','RESOURCES')+`<section class="wrap section prose"><h2>Recruitment information</h2><p>Verify offers and payment instructions through official company contacts.</p><p>${feeLink}</p><a class="text-link" href="/resources/archived-notices">Read archived notices &nearr;</a></section>`;}
   if(p.url==='/legal')p.body+='<section class="wrap section"><a class="text-link" href="/disclaimer">Website Disclaimer &nearr;</a></section>';
  }

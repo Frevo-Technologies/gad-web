@@ -1,6 +1,8 @@
 // Client-supplied GA_Digital_Client_Testimonials_DRAFT_for_Approval.pdf,
 // received 26 October 2026. Quotes and suggested attributions are transcribed
-// as drafts; the PDF contains no completed client approvals or named signers.
+// from the original draft. On 26 October 2026 the website owner confirmed
+// client provenance and explicitly authorised publication. No signed approval
+// forms or individual signer names are claimed by this authorisation.
 export const clientTestimonials=[
  {id:'tnmsc-chennai',organisation:'Tamil Nadu Medical Services Corporation Ltd. (TNMSC), Chennai',quote:'GA Digital has supported TNMSC with manpower since 2011. Over these years they have deployed and managed more than 850 personnel for us, taking care of hiring, payroll and statutory compliance. Their continuity of service has made them a dependable partner for our operations.',suggestedAttribution:'The Administrative Officer, Tamil Nadu Medical Services Corporation Ltd. (TNMSC), Chennai'},
  {id:'mppkvvcl-mandsaur',organisation:'MPPKVVCL Company Ltd., Mandsaur',quote:'GA Digital deployed over a thousand personnel in our circle from 2021 to 2024. They managed a large field workforce with consistent attendance, payroll and compliance, and their performance was excellent.',suggestedAttribution:'Superintending Engineer (O&M), MPPKVVCL Company Ltd., Mandsaur'},
@@ -16,4 +18,6 @@ export const clientTestimonials=[
  {id:'nit-patna',organisation:'National Institute of Technology (NIT), Patna',quote:'GA Digital has provided manpower to NIT Patna since October 2023, and the contract has been extended for a further year. Their performance has been consistently excellent, and salaries along with EPF, ESIC and GST have been paid on time throughout the contract period.',suggestedAttribution:'Registrar, National Institute of Technology (NIT), Patna'},
  {id:'ccryn-delhi',organisation:'Central Council for Research in Yoga & Naturopathy (CCRYN), New Delhi',quote:'GA Digital supplied 128 personnel to CCRYN, Ministry of AYUSH, from April 2024 to March 2025. Their service to the Council was excellent.',suggestedAttribution:'Director, Central Council for Research in Yoga & Naturopathy (CCRYN), New Delhi'},
  {id:'nhidcl-delhi',organisation:'National Highways & Infrastructure Development Corporation Ltd. (NHIDCL), Delhi',quote:'GA Digital supplied qualified civil engineers with highway and tunnel experience to NHIDCL from 2021 to 2023. The candidates met our qualification and experience requirements, and their service was excellent.',suggestedAttribution:'DGM (Administration), National Highways & Infrastructure Development Corporation Ltd. (NHIDCL), Delhi'}
-].map(entry=>({status:'draft',approvedAttribution:null,approvalReference:null,...entry}));
+].map(entry=>({...entry,status:'approved',approvedAttribution:entry.suggestedAttribution,
+ approvalReference:'Website owner confirmed client-supplied content and authorised publication in this conversation, 26 October 2026.',
+ publicationAuthorisation:'website-owner',authorisedOn:'2026-10-26'}));
