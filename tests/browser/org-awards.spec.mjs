@@ -33,7 +33,7 @@ test('leadership uses the requested two rows of three equal cards',async({page})
  expect(await cards[0].evaluate(el=>getComputedStyle(el,'::after').content)).toMatch(/none|normal/);
  for(const width of [1440,390]){
   await page.setViewportSize({width,height:1000});
-  for(const [name,file] of [['S.K. Tandon','sk-tandon.jpeg'],['Archeesha Sharma','archeesha-sharma.jpeg'],['Nidhi Anand','nidhi-anand.jpeg']]){
+  for(const [name,file] of [['Sharat Mishra','sharat-mishra.jpeg'],['S.K. Tandon','sk-tandon.jpeg'],['Archeesha Sharma','archeesha-sharma.jpeg'],['Nidhi Anand','nidhi-anand.jpeg']]){
    const card=page.locator('.leadership-compact .person-card').filter({has:page.getByRole('heading',{name,exact:true})});const image=card.getByRole('img',{name,exact:true});
    await expect(image).toHaveCSS('object-fit','cover');await expect(image).toHaveAttribute('src','/assets/'+file);await image.scrollIntoViewIfNeeded();await expect.poll(()=>image.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);await expect(card.locator('.portrait-pending')).toHaveCount(0);
   }

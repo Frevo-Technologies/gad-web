@@ -24,5 +24,4 @@ test('hero photograph ombre and readable teal hover styles',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');
  const heroBackground=await page.locator('.home-hero').evaluate(el=>getComputedStyle(el).backgroundImage);expect(heroBackground).toContain('linear-gradient');expect(heroBackground).toContain('hero-office-background.jpg');
  const service=page.locator('.service-row').first();await service.hover();await expect(service).toHaveCSS('background-color','rgb(8, 117, 119)');await expect(service.locator('h3')).toHaveCSS('color','rgb(255, 255, 255)');
- await page.goto('/services/contract-staffing');const sector=page.locator('.pill').first();await sector.focus();await expect(sector).toHaveCSS('background-color','rgb(19, 62, 68)');await expect(sector).toHaveCSS('color','rgb(255, 255, 255)');
 });

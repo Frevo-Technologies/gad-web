@@ -6,10 +6,10 @@ Updated 26 October 2026 after adding the 14 supplied testimonial drafts and the 
 
 - Ajay’s full name: the chart provides only “Ajay”; retained with your agreement.
 - Kajal’s full name: the chart provides only “Kajal.”
-- Leadership portraits for Sharat Mishra and Manish Dutt Sharma. Garima Arora, S.K. Tandon, Archeesha Sharma and Nidhi Anand now have supplied photographs.
-- Exact LinkedIn profile URLs for the six leaders, if these links should be enabled.
+- Leadership portrait for Manish Dutt Sharma. Sharat Mishra’s supplied photograph was added on 28 October 2026. Garima Arora, S.K. Tandon, Archeesha Sharma and Nidhi Anand now have supplied photographs.
+- LinkedIn profile URLs for S.K. Tandon and Nidhi Anand. The four supplied URLs are enabled.
 - S.K. Tandon’s email, if it should be shown.
-- Approved final Managing Director’s message. The draft is now hidden from rendered pages; its local source is retained.
+- The original Managing Director message and photo are restored on Our Story at the owner’s request. The owner-supplied Managing Director message was published on 28 October 2026, replacing the draft.
 
 The latest request authorizes all department staff and their documented positions on the reverse of the five cards. There are 22 department staff entries. Executives overseeing departments are already in Leadership and are not repeated in the staff lists. Shikha Dixit’s documented position is HR and Compliance Assistant Manager; no Chief Manager title is invented.
 
