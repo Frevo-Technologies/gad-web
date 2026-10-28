@@ -1,5 +1,5 @@
 (() => {
-  if(location.pathname.replace(/\/$/,'')==='/about/md-message'){location.replace('/about'+location.search);return;}
+  if(location.pathname.replace(/\/$/,'')==='/about/md-message'){location.replace('/about'+location.search+'#director-message');return;}
   const countMotion=matchMedia('(prefers-reduced-motion: reduce)');
   document.querySelectorAll('.impact-strip').forEach(strip=>{
     const counters=[...strip.querySelectorAll('[data-count-to]')];

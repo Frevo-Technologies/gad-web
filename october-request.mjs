@@ -9,7 +9,7 @@ const testimonials=testimonialSection(clientTestimonials,{limit:3});
 const suppliedRoles=`<section class="wrap section supplied-designations"><span class="eyebrow">CLIENTS &amp; DESIGNATIONS</span><h2>Discuss a relevant workforce requirement.</h2><p>Contact our team for client references and the designations relevant to your requirement.</p><a class="text-link" href="mailto:tender@gadigital.in">Ask about client references &nearr;</a></section>`;
 // Normalize copy and accessible labels, while leaving paths and original archived records intact.
 export function normalizeCompanyHtml(html){
- const archive=[];html=html.replace(/<div class="notice-verbatim">[\s\S]*?<\/div>|<blockquote\b[^>]*>[\s\S]*?<\/blockquote>/g,m=>{archive.push(m);return `<!--original-archive-${archive.length-1}-->`;});
+ const archive=[];html=html.replace(/<article class="md-copy">[\s\S]*?<\/article>|<div class="notice-verbatim">[\s\S]*?<\/div>|<blockquote\b[^>]*>[\s\S]*?<\/blockquote>/g,m=>{archive.push(m);return `<!--original-archive-${archive.length-1}-->`;});
  const legal=text=>text.replace(/\bGA Digital(?: Web (?:Word|World))?(?: Pvt\.? Ltd\.?)?(?:’s|'s)?/g,m=>company.name+(/(?:’s|'s)$/.test(m)?'’s':''));
  html=html.split(/(<[^>]*>)/g).map(part=>part.startsWith('<')?part.replace(/\b(alt|title|aria-label|content)="([^"]*)"/g,(_,a,v)=>`${a}="${legal(v)}"`):legal(part)).join('');
  return html.replace(/<!--original-archive-(\d+)-->/g,(_,i)=>archive[Number(i)]);
@@ -27,8 +27,6 @@ export function applyOctoberRequest(pages,{innerHero,articleCards,engagementCard
    // Approved FAQs previously repeated fee particulars; keep one authoritative destination.
    p.body=p.body.replace(/(<summary>[^<]*(?:fee|charge)[\s\S]*?<\/summary>)<p>[\s\S]*?<\/p>/gi,`$1<p>${feeLink}</p>`);
   }
-  p.body=p.body.replace(/<section class="wrap section md-layout"[\s\S]*?<\/section>/g,'');
-  if(p.url==='/about/md-message'){p.redirectTo='/about';p.body='<section class="wrap section prose"><h1>Our Story</h1><p><a href="/about">Explore our story and leadership.</a></p></section>';}
   if(p.url==='/'){
    p.body=p.body.replace(/<section class="soft-bg"><div class="wrap section"><div class="section-heading"><div><span class="eyebrow">LATEST INSIGHTS<\/span>[\s\S]*?<\/section>/,`<section class="soft-bg latest-insights"><div class="wrap section"><span class="eyebrow">LATEST INSIGHTS</span><h2>A practical perspective on people.</h2><div class="insights-groups">${['HR Insights','Candidate Insights'].map(category=>`<section aria-label="${category}"><h3>${category}</h3>${articleCards(articles.filter(a=>a.category===category))}</section>`).join('')}</div><a class="text-link" href="/insights">Explore all insights &nearr;</a></div></section>`);
    p.body+=testimonials;
@@ -50,6 +48,7 @@ export function applyOctoberRequest(pages,{innerHero,articleCards,engagementCard
   if(p.url==='/clients/case-studies'){p.body=innerHero('Client success stories','Explore published engagement context while approved client stories are prepared.','CLIENT EXPERIENCES')+successStories;}
   if(p.url==='/clients/testimonials')p.body=innerHero('Client experiences','Feedback from the organisations we support.','TESTIMONIALS')+testimonialSection(clientTestimonials);
   if(p.url==='/public-notices'){p.description='Recruitment information and access to archived public notices.';p.body=innerHero('Public notices','Recruitment information and earlier notices.','RESOURCES')+`<section class="wrap section prose"><h2>Recruitment information</h2><p>Verify offers and payment instructions through official company contacts.</p><p>${feeLink}</p><a class="text-link" href="/resources/archived-notices">Read archived notices &nearr;</a></section>`;}
+  if(p.url==='/legal')p.body+=`<section class="wrap section prose"><h2>Recruitment public notice</h2><p class="article-meta">14 June 2025</p>${originalArchive}</section>`;
   if(p.url==='/legal')p.body+='<section class="wrap section"><a class="text-link" href="/disclaimer">Website Disclaimer &nearr;</a></section>';
  }
  const it=pages.find(p=>p.url==='/services/it-technical-manpower');

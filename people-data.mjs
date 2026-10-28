@@ -1,8 +1,8 @@
 // Replace placeholder names/photos and paste exact LinkedIn profile URLs here.
 // null URLs produce a clear coming-soon dialog, never a guessed profile link.
-export const managingDirector={id:'md',name:'Garima Arora',role:'Managing Director',photo:'garima-arora.jpeg',placeholder:false,linkedin:null,email:'garima1200@hotmail.com',bio:'Leading GA Digital Web Word and its recruitment and workforce services.'};
+export const managingDirector={id:'md',name:'Garima Arora',role:'Managing Director',photo:'garima-arora.jpeg',placeholder:false,linkedin:'https://in.linkedin.com/in/garima-arora-5a85ab216',email:'garima1200@hotmail.com',bio:'Leading GA Digital Web Word and its recruitment and workforce services.'};
 export const stakeholders=[
- {id:'garima',name:'Garima Arora',role:'Managing Director',photo:'garima-arora.jpeg',placeholder:false,linkedin:null,bio:'Leadership in human capital management, with a focus on innovation and integrity.'},
+ {id:'garima',name:'Garima Arora',role:'Managing Director',photo:'garima-arora.jpeg',placeholder:false,linkedin:'https://in.linkedin.com/in/garima-arora-5a85ab216',bio:'Leadership in human capital management, with a focus on innovation and integrity.'},
  {id:'operations',name:'[Stakeholder name]',role:'Operations leadership · indicative role',portrait:1,placeholder:true,linkedin:null,bio:'Indicative profile: oversight of service delivery, client coordination and operational teams.'},
  {id:'finance',name:'[Stakeholder name]',role:'Finance leadership · indicative role',portrait:2,placeholder:true,linkedin:null,bio:'Indicative profile: financial planning, governance and workforce administration.'}
 ];
@@ -19,9 +19,9 @@ export const testimonialSamples=[
 
 export const leadershipMembers=[managingDirector,
  {name:'S.K. Tandon',photo:'sk-tandon.jpeg',role:'Director',email:null,linkedin:null},
- {name:'Sharat Mishra',role:'Chief Executive Officer',email:'ceo@gadigital.in',linkedin:null},
- {name:'Manish Dutt Sharma',role:'Chief Financial Officer',email:'cfo@gadigital.in',linkedin:null},
- {name:'Archeesha Sharma',photo:'archeesha-sharma.jpeg',role:'Chief Operating Officer',email:'coo@gadigital.in',linkedin:null},
+ {name:'Sharat Mishra',photo:'sharat-mishra.jpeg',role:'Chief Executive Officer',email:'ceo@gadigital.in',linkedin:'https://in.linkedin.com/in/sharat-mishra-ba009318'},
+ {name:'Manish Dutt Sharma',role:'Chief Financial Officer',email:'cfo@gadigital.in',linkedin:'https://www.linkedin.com/in/manish-dutt-sharma-139bb4185'},
+ {name:'Archeesha Sharma',photo:'archeesha-sharma.jpeg',role:'Chief Operating Officer',email:'coo@gadigital.in',linkedin:'https://www.linkedin.com/in/archeesha-kumar-sharma-446b511a6/'},
  {name:'Nidhi Anand',photo:'nidhi-anand.jpeg',role:'Chief Marketing Officer',email:'cmo@gadigital.in',linkedin:null}
 ];
 

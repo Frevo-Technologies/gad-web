@@ -14,7 +14,7 @@ test('PDF content rules apply sitewide without changing the original archive',as
  await page.goto('/');await expect(page.locator('.insights-groups>section')).toHaveCount(2);await expect(page.locator('.insights-groups .article-card img')).toHaveCount(3);await expect(page.locator('.why-grid>div>span')).toHaveCount(0);
  const archive=fs.readFileSync('dist/resources/archived-notices/index.html','utf8'),original=JSON.parse(fs.readFileSync('research.json','utf8')).public_notice;
  const text=await page.request.get('/resources/archived-notices');expect(text.ok()).toBe(true);await page.goto('/resources/archived-notices');expect(await page.locator('.notice-verbatim').innerText()).toBe(original.split('\n').filter(Boolean).join('\n\n'));
- expect(archive).toContain('14/06/2025');await page.goto('/about');await expect(page.locator('#director-message,.md-copy')).toHaveCount(0);
+ expect(archive).toContain('14/06/2025');await page.goto('/about');await expect(page.locator('#director-message')).toBeVisible();await expect(page.locator('#director-message img')).toHaveAttribute('src','/assets/garima-arora.jpeg');
 });
 test('department fronts carry contacts and handling chiefs; Ritu retains her source role',async({page})=>{
  await page.goto('/about/our-team');
