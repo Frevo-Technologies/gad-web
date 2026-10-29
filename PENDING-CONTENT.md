@@ -1,5 +1,7 @@
 # GA Digital — outstanding content and decisions
 
+**Reminder requested by owner, 29 October 2026:** Client Success Stories are still pending. Keep the section and its links hidden on the public website until approved stories are supplied. Remind the owner in future website progress reviews; no scheduled reminder time has been requested.
+
 Updated 26 October 2026 after adding the 14 supplied testimonial drafts and the earlier website changes. See PDF-IMPLEMENTATION-REPORT.md for the requirement-by-requirement status.
 
 ## Names, portraits and profile links
@@ -18,7 +20,7 @@ The latest request authorizes all department staff and their documented position
 - Confirm the exact identity and official logo for “Public Financial Management System, Punjab.” A central-government PFMS logo has not been assumed to identify a separate Punjab organization.
 - The Ministry of External Affairs, GTB Hospital and Lady Hardinge cards use the emblems shown on their own official websites. Supply dedicated institutional crests if you prefer those to the current website emblems.
 
-The other 31 client entries now have locally stored, verified logo/emblem assets. Official websites and NIC’s logo library were preferred; BBNL uses the identified Wikimedia Commons logo with its CC0 source recorded. See `client-logo-sources.json`.
+The original 31 client logos/emblems are retained. Another 31 verified logos/emblems were added from official institutional websites on 29 October 2026. Official websites and NIC’s logo library were preferred; BBNL uses the identified Wikimedia Commons logo with its CC0 source recorded. See `client-logo-sources.json`.
 
 ## Certifications and client stories
 
@@ -51,3 +53,34 @@ Ritu is now recorded exactly as **Ritu**, with the existing Jr. Tender Executive
 - If Outsourcing and Training must become separate pages, confirm that split and provide distinct approved copy. The supplied document and existing website combine them, so that route is preserved.
 
 No further industry stock images are needed: all nine industry categories now have locally stored Pexels photographs. Their source pages, creators and license links are in `industry-image-sources.json`. They are representative stock photos, not GA Digital staff/client photographs.
+
+## Brochure client logo follow-up — 29 October 2026
+
+All 87 brochure entries are included, with the existing GTB Hospital entry retained (88 clients total). Added 56 missing client names and 31 verified logo/emblem assets. Per owner instruction, unconfirmed logos remain absent. The following entries still need a confirmed logo or institutional identity; do not substitute an unrelated logo:
+
+- Prime Minister Museum & Library
+- Ministry of IT, Soochna Bhawan
+- Ministry of Drinking Water and Sanitation
+- Department of Telecommunications
+- Ayush Department
+- Income Tax Department
+- Sales Tax Department
+- Directorate of Information Technology
+- National Tiger Conservation Authority
+- District Urban Development Cell, Bangalore
+- Indian Institutes of Science Education and Research
+- Chaudhary Charan Singh University, Meerut
+- National School of Drama
+- National Statistical Systems Training Academy
+- Port Health Mangalore
+- Health Department Kolkata
+- Morarji Desai National Institute of Yoga
+- North Eastern Electric Power Corporation Limited
+- Indian Strategic Petroleum Reserves Limited, Noida
+- Mahanagar Gas Limited
+- Uttar Pradesh Power Corporation Limited
+- Central Cottage Industries Emporium
+- Public Financial Management System, Punjab
+- High Speed Rail Corporation of India Limited
+- Central Electro Chemical Research Institute, Chennai
+- National Research Centre for Banana

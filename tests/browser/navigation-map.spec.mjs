@@ -10,3 +10,19 @@ test('all office pins synchronize with address selection and directions',async({
  await page.locator('[data-office-select="bhopal"]').click();await expect(page.locator('[data-street-address]')).toContainText('462066');
  await page.setViewportSize({width:390,height:844});expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });
+test('service sectors open matching client category and verification is last',async({page})=>{
+ await page.goto('/services/contract-staffing');
+ const sector=page.locator('.pill-links a[href="/clients?industry=education"]');
+ await expect(sector).toBeVisible();await sector.click();
+ await expect(page.locator('[data-category-select]')).toHaveValue('education');
+ const visible=page.locator('.client-tile[data-category]:visible');
+ await expect(visible).not.toHaveCount(0);
+ for(const tile of await visible.all())await expect(tile).toHaveAttribute('data-category','education');
+ await page.getByRole('button',{name:'Services',exact:true}).click();
+ const links=page.locator('#nav-panel-1 a');
+ await expect(links.nth(await links.count()-2)).toHaveAttribute('href','/services/it-technical-manpower');
+ await expect(links.last()).toHaveAttribute('href','/services/employment-verification');
+ await page.goto('/services');
+ const services=page.locator('main .service-row');
+ await expect(services.last()).toHaveAttribute('href','/services/employment-verification');
+});
