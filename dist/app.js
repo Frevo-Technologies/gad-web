@@ -206,6 +206,11 @@
   document.querySelectorAll('[data-filter-group]').forEach(group=>{
     const rows=[...group.querySelectorAll('[data-search]')],search=group.querySelector('[data-search-input]');
     const controls=['category','location','status','type'].map(key=>[key,group.querySelector(`[data-${key}-select]`)]);
+    if(document.body.dataset.route==='/clients'){
+      const category=group.querySelector('[data-category-select]');
+      const industry=new URLSearchParams(location.search).get('industry');
+      if(category&&[...category.options].some(option=>option.value===industry))category.value=industry;
+    }
     function filter(){const term=(search?.value||'').trim().toLowerCase();let count=0;rows.forEach(row=>{const show=(!term||row.dataset.search.toLowerCase().includes(term))&&controls.every(([key,select])=>!select||select.value==='all'||row.dataset[key]===select.value);row.hidden=!show;if(show)count++;});const empty=group.querySelector('.empty-state');if(empty)empty.hidden=count!==0;const counter=group.querySelector('.result-count');if(counter)counter.textContent=`${count} ${count===1?'notice':'notices'}`;}
     search?.addEventListener('input',filter);controls.forEach(([,select])=>select?.addEventListener('change',filter));
     group.querySelector('.reset-filters')?.addEventListener('click',()=>{if(search)search.value='';controls.forEach(([,select])=>{if(select)select.value='all';});filter();search?.focus();});filter();

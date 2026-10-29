@@ -35,13 +35,13 @@
     "noindex": false
   },
   {
-    "url": "/services/employment-verification",
-    "title": "Employment Verification",
+    "url": "/services/it-technical-manpower",
+    "title": "IT & Technical Manpower",
     "noindex": false
   },
   {
-    "url": "/services/it-technical-manpower",
-    "title": "IT & Technical Manpower",
+    "url": "/services/employment-verification",
+    "title": "Employment Verification",
     "noindex": false
   },
   {
@@ -141,7 +141,7 @@
   },
   {
     "url": "/clients",
-    "title": "Clients & Success Stories",
+    "title": "Clients",
     "noindex": false
   },
   {
@@ -166,8 +166,8 @@
   },
   {
     "url": "/clients/case-studies",
-    "title": "Case Studies",
-    "noindex": false
+    "title": "Clients",
+    "noindex": true
   },
   {
     "url": "/clients/testimonials",
