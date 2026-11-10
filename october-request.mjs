@@ -2,7 +2,17 @@ import {clientTestimonials} from './testimonial-data.mjs';
 import {testimonialSection} from './testimonial-components.mjs';
 import {company,articles} from './site-data.mjs';
 import {feeText,facilityGroups} from './confirmed-feedback.mjs';
-export const itService={slug:'it-technical-manpower',title:'IT & Technical Manpower',short:'IT & Technical Manpower',description:'Specialist people for software, infrastructure, data and technology leadership.',icon:'layers',source:'',capabilities:facilityGroups[10][2],challenge:'Build a team for your digital and IT operations.',approach:'Share the roles, qualifications, headcount and project requirements with our team.',faq:[]};
+export const itService={
+ slug:'it-technical-manpower',title:'IT & Technical Manpower',short:'IT & Technical Manpower',
+ description:'Specialist people for software, infrastructure, data and technology leadership.',icon:'layers',source:'',
+ capabilities:[...facilityGroups[10][2],'CTO and CXO roles'],
+ challenge:'Build a team for your digital and IT operations.',
+ approach:'Share the roles, qualifications, headcount and project requirements with our team.',
+ faq:[
+  ['Which IT and technical roles can we discuss?','Software, infrastructure, IT support, MIS, database, data, AI, project management, CTO and CXO requirements.'],
+  ['What information should we share?','Share the role descriptions, qualifications, experience, headcount, location and project timeline.']
+ ]
+};
 const recruitment='/services/recruitment-head-hunting';
 const feeLink=`See <a href="${recruitment}#placement-service-fee">Placement Service Fee details on the Recruitment page</a>, or contact <a href="mailto:hr@gadigital.in">hr@gadigital.in</a> for clarification.`;
 const testimonials=testimonialSection(clientTestimonials,{limit:3});
@@ -34,6 +44,10 @@ export function applyOctoberRequest(pages,{innerHero,articleCards,engagementCard
    const article=articles.find(a=>p.url==='/insights/'+a.slug);
    if(article&&!p.body.includes('class="insight-photo"')){const end=p.body.indexOf('</section>')+10;p.body=p.body.slice(0,end)+`<figure class="wrap insight-photo"><img src="/assets/${article.image}" alt="${article.imageAlt}" width="1536" height="1024"><figcaption>Image for illustration.</figcaption></figure>`+p.body.slice(end);}
   }
+  if(p.url==='/services/it-technical-manpower'){
+   // Keep the common service template; replace its empty sector context with references.
+   p.body=p.body.replace(/<section class="wrap section compact-top">(?:(?!<\/section>)[\s\S])*<\/section>/,`<section class="wrap section compact-top it-client-references"><div class="section-heading"><div><span class="eyebrow">CLIENT REFERENCES</span><h2>Relevant client context.</h2><p>Explore the existing client records for IT and specialist manpower requirements.</p></div></div><div class="two-col"><a class="engagement-card" href="/clients/testimonials#cdac-noida"><span class="eyebrow">IT PROJECTS</span><h3>C-DAC</h3><p>Technical and non-technical manpower for IT projects at the Centre for Development of Advanced Computing, Noida.</p><span class="text-link">Read the client testimonial &nearr;</span></a><a class="engagement-card" href="/clients/engagements/uidai"><span class="eyebrow">SPECIALIST TECHNOLOGY ROLES</span><h3>UIDAI</h3><p>Published recruitment context for specialist technology and product roles at the Unique Identification Authority of India.</p><span class="text-link">View the engagement context &nearr;</span></a></div></section>`);
+  }
   // The client retained these two sections only on Contract Staffing.
   if(p.url==='/services/contract-staffing'){
    p.body+=suppliedRoles;
@@ -54,8 +68,6 @@ export function applyOctoberRequest(pages,{innerHero,articleCards,engagementCard
   if(p.url==='/legal')p.body+=`<section class="wrap section prose"><h2>Recruitment public notice</h2><p class="article-meta">14 June 2025</p>${originalArchive}</section>`;
   if(p.url==='/legal')p.body+='<section class="wrap section"><a class="text-link" href="/disclaimer">Website Disclaimer &nearr;</a></section>';
  }
- const it=pages.find(p=>p.url==='/services/it-technical-manpower');
- it.body=innerHero('IT &amp; Technical Manpower','Skilled professionals for digital and IT operations.','SPECIALIST STAFFING')+`<section class="wrap section two-col"><div><h2>What you need</h2><p>People for software development, IT infrastructure, data operations and technology leadership.</p></div><div><h2>Our approach</h2><p>Share the qualifications, experience, headcount, location and project requirements with our team to discuss suitable staffing.</p></div></section><section class="wrap section"><h2>Roles we can help you source.</h2><ul class="check-list">${[...itService.capabilities,'CTO and CXO roles'].map(role=>`<li>${role}</li>`).join('')}</ul></section><section class="wrap section"><h2>Relevant client context</h2><h3>C-DAC</h3><p>Contact our team about IT manpower requirements for institutions such as C-DAC, including relevant engagement and supplied-designation details.</p><a class="text-link" href="mailto:tender@gadigital.in">Discuss your IT staffing requirement &nearr;</a></section>`;
  pages.push({url:'/resources',title:'Resources',description:'Insights, client experiences, recruitment guidance and the Legal Notice.',body:innerHero('Useful resources','Guidance and information for organisations and candidates.','RESOURCES')+'<section class="wrap section"><div class="link-panels">'+[['/insights','HR &amp; Candidate Insights'],['/clients','Clients'],['/clients/testimonials','Testimonials'],['/public-notices','Public Notices'],['/resources/archived-notices','Legal Notice']].map(([url,title])=>`<a href="${url}"><h2>${title}</h2><span class="text-link">Explore &nearr;</span></a>`).join('')+'</div></section>'});
  pages.push({url:'/resources/archived-notices',title:'Legal Notice',description:'Company recruitment legal notice dated 14 June 2025.',body:innerHero('Legal Notice','Company recruitment notice dated 14 June 2025.','RESOURCES')+`<section class="wrap section prose"><h2>Recruitment notice — 14 June 2025</h2><p class="note">For recruitment guidance, visit the <a href="${recruitment}">Recruitment page</a> and contact HR.</p>${originalArchive}</section>`});
  pages.push({url:'/disclaimer',title:'Website Disclaimer',description:'Website and recruitment information, official contacts and related legal documents.',noindex:true,body:innerHero('Website Disclaimer','Information and official points of contact.','LEGAL INFORMATION')+`<section class="wrap section prose"><h2>Website information</h2><p>This website provides information about GA Digital Web Word Pvt. Ltd. and its workforce services. Contact our team to confirm the details relevant to your enquiry.</p><h2>Recruitment enquiries</h2><p>Confirm vacancy availability and application instructions through the official FrevoOne portal or HR. ${feeLink}</p><h2>Related documents</h2><ul><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-conditions">Terms &amp; Conditions</a></li><li><a href="/cookie-policy">Cookie Policy</a></li><li><a href="/recruitment-disclaimer">Recruitment information</a></li></ul><p>For clarification, email <a href="mailto:${company.email}">${company.email}</a>.</p></section>`});
