@@ -24,7 +24,7 @@ test('department fronts carry contacts and handling chiefs; Ritu retains her sou
 });
 test('only Contract Staffing retains reference and facility sections; Recruitment retains fee details',async({page})=>{
  for(const {url} of routes.filter(p=>p.url.startsWith('/services/'))){await page.goto(url);const count=url==='/services/contract-staffing'?1:0;await expect(page.locator('.supplied-designations')).toHaveCount(count);await expect(page.locator('.related-facility')).toHaveCount(count);}
- await page.goto('/services/it-technical-manpower');await expect(page.locator('main')).toContainText('CTO and CXO');await expect(page.locator('main')).toContainText('C-DAC');await expect(page.locator('main')).toContainText('AI engineers');
+ await page.goto('/services/it-technical-manpower');await expect(page.locator('main')).toContainText('CTO and CXO');await expect(page.locator('main')).toContainText('C-DAC');await expect(page.locator('.it-client-references')).toContainText('UIDAI');await expect(page.locator('main')).toContainText('AI engineers');
  await page.goto('/services/recruitment-head-hunting');await expect(page.locator('#placement-service-fee')).toContainText('10,000');
  await page.goto('/services/outsourcing-training');await expect(page.locator('.training-provided')).toContainText('Workplace soft skills');
 });

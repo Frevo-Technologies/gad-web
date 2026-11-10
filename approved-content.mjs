@@ -1,5 +1,12 @@
 // Client-supplied DOCX copy, 20 October 2026; fee and HRMS contact follow the change brief.
 export const serviceCopy={
+  // IT presentation copy follows the owner-supplied role list; aligned with other services, 10 November 2026.
+  "it-technical-manpower": {
+    "needTitle": "The right people for your IT operations.",
+    "need": "People for software development, IT infrastructure, data operations and technology leadership.",
+    "approachTitle": "Specialist staffing, planned around your project.",
+    "approach": "Share the qualifications, experience, headcount, location and project requirements with our team to discuss suitable staffing."
+  },
   "contract-staffing": {
     "needTitle": "Staff for your project, without the hiring workload.",
     "need": "Need people for a project or a fixed contract period? We hire them as GA Digital employees and handle their offer letters, payroll and HR paperwork, so you get the team without the extra administration.",
