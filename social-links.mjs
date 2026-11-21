@@ -10,8 +10,8 @@ export const socialIcon=network=>`<svg class="social-icon" width="22" height="22
 export const socialProfiles=[
  {network:'instagram',name:'Instagram',url:'https://www.instagram.com/ga_digital__/'},
  {network:'facebook',name:'Facebook',url:'https://www.facebook.com/GADigitalWebWord/'},
+ {network:'x',name:'X',url:'https://x.com/Ga_Digital___'},
  // Add the supplied company URL here when available.
- {network:'x',name:'X',url:null},
  {network:'linkedin',name:'LinkedIn',url:null}
 ];
 
