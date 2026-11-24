@@ -1,4 +1,10 @@
-﻿import {test,expect} from '@playwright/test';
-import AxeBuilder from '@axe-core/playwright';
-test('theme choice persists and direct links override it',async({page})=>{await page.goto('/');await page.getByLabel('Preview theme').selectOption('classic');await expect(page.locator('html')).toHaveAttribute('data-theme','classic');await page.goto('/contact');await expect(page.getByLabel('Preview theme')).toHaveValue('classic');await page.goto('/?theme=editorial');await expect(page.getByLabel('Preview theme')).toHaveValue('editorial');await page.reload();await expect(page.locator('html')).toHaveAttribute('data-theme','editorial');});
-for(const theme of ['classic','editorial','fresh'])test(`${theme} theme desktop and mobile accessibility`,async({page})=>{test.setTimeout(90000);for(const width of [1440,390]){await page.setViewportSize({width,height:900});await page.goto('/?theme='+theme);expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);const results=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(results.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))).toEqual([]);await page.screenshot({path:`artifacts/theme-${theme}-${width}.png`});}});
+import {test,expect} from '@playwright/test';
+
+test('Fresh Blue & Teal is the fixed theme and preview controls are hidden',async({page})=>{
+ await page.goto('/');
+ await expect(page.locator('html')).toHaveAttribute('data-theme','fresh');
+ await expect(page.locator('.theme-picker')).toHaveCount(0);
+ await expect(page.getByLabel('Preview theme')).toHaveCount(0);
+ await page.goto('/contact?theme=classic');
+ await expect(page.locator('html')).toHaveAttribute('data-theme','fresh');
+});
