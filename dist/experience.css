@@ -161,3 +161,12 @@ main>.section+ .section{padding-top:24px}
   .client-tile:hover .client-logo-stage img{scale:1.09;transition:scale .65s cubic-bezier(.22,.61,.36,1)}
 }
 @keyframes button-light-pass{to{left:140%}}
+.social-icon{display:block;flex:none;width:22px;height:22px}
+.social-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+footer .social-links .social-link{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;padding:10px;border:1px solid #82949e;border-radius:50%;color:#fff;text-decoration:none;transition:background-color .2s,border-color .2s}
+footer .social-links a:hover{background:#087577;border-color:#54c5c0;color:#fff}
+footer .social-links a:focus-visible{outline:3px solid #fff;outline-offset:3px;background:#087577}
+footer .social-links .social-link-pending{color:#b7c4cc;border-style:dashed}
+.linkedin-link{align-items:center;justify-content:center;flex-wrap:nowrap;width:44px;height:44px;padding:10px;border:1px solid #0a66c2;border-radius:6px;color:#0a66c2;background:#fff}
+.linkedin-link:hover{color:#fff;background:#0a66c2;border-color:#0a66c2}
+.linkedin-link:focus-visible{outline:3px solid #0a66c2;outline-offset:3px}

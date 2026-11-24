@@ -35,13 +35,12 @@ export const departmentManagers=[
   {name:'Anuj Sharma',position:'Tender Specialist'},
   {name:'Ashish Arora',position:'Sr. Tender Executive'},
   {name:'Rohit Singh',position:'Tender Executive'},
-  {name:'Ritu',position:'Jr. Tender Executive'}
+  {name:'Ritu Rawat',position:'Jr. Tender Executive'}
  ]},
  {department:'HR',email:'hr@gadigital.in',handling:['Archeesha Sharma'],members:[
   {name:'Ajay',position:'Chief HR Manager'},
   {name:'Shweta Kanojia',position:'HR Manager'},
-  {name:'Harsh Kumar',position:'HR Manager'},
-  {name:'Aarzoo Ahmed',position:'HR Executive'}
+  {name:'Harsh Kumar',position:'HR Manager'}
  ]},
  {department:'Compliance',email:'compliance@gaidgital.in',handling:['Manish Dutt Sharma'],members:[
   {name:'Shrawan Gupta',position:'Chief Compliance Manager (PF)'},
@@ -54,7 +53,6 @@ export const departmentManagers=[
   {name:'Prashant Aggarwal',position:'Chief Payroll Manager'},
   {name:'Shipra Garg',position:'Finance Manager'},
   {name:'Kajal',position:'Jr. Finance Manager'},
-  {name:'Harshit Yadav',position:'Finance Manager'},
   {name:'Komal Pathak',position:'Jr. Finance Executive'},
   {name:'Nitika Thukral',position:'Accounts Manager'}
  ]},

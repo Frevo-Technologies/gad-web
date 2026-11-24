@@ -1,9 +1,10 @@
+import {socialIcon} from './social-links.mjs';
 import {offices} from './office-data.mjs';
 import {awards} from './awards-data.mjs';
 import {company} from './site-data.mjs';
 import {managingDirector,leadershipMembers,departmentManagers,stakeholders,hrMembers,testimonialSamples} from './people-data.mjs';
 const e=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-export function linkedin(person){return person.linkedin?`<a class="linkedin-link" href="${e(person.linkedin)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">in</span> View LinkedIn profile ↗</a>`:`<button type="button" class="linkedin-link" data-profile-pending="${e(person.name)}"><span aria-hidden="true">in</span> LinkedIn profile <small>Link coming soon</small></button>`;}
+export function linkedin(person){const label=`LinkedIn profile for ${e(person.name)}`;return person.linkedin?`<a class="linkedin-link" href="${e(person.linkedin)}" target="_blank" rel="noopener noreferrer" aria-label="${label} (opens in a new tab)" title="${label}">${socialIcon('linkedin')}</a>`:`<button type="button" class="linkedin-link" data-profile-pending="${e(person.name)}" aria-label="${label} (link coming soon)" title="${label} — link coming soon">${socialIcon('linkedin')}</button>`;}
 function portrait(p){if(!p.photo&&!p.placeholder)return `<figure class="person-portrait portrait-pending"><span aria-hidden="true">${e(p.name.split(/\s+/).map(n=>n[0]).slice(0,2).join(''))}</span><figcaption>Photograph coming soon</figcaption></figure>`;return `<figure class="person-portrait">${p.photo?`<img loading="lazy" src="/assets/${e(p.photo)}" alt="${e(p.name)}">`:`<div class="sample-portrait" role="img" aria-label="AI-generated placeholder portrait; not an actual team member" style="--portrait-x:${p.portrait%3*50}%;--portrait-y:${Math.floor(p.portrait/3)*100}%"></div><figcaption>Illustrative photo · replace with actual photo</figcaption>`}</figure>`;}
 function card(p){return `<article class="person-card">${portrait(p)}<div class="person-copy">${p.placeholder?'<span class="sample-label">Indicative profile</span>':''}<h3>${e(p.name)}</h3><p class="person-role">${e(p.role)}</p><p>${e(p.bio)}</p>${linkedin(p)}</div></article>`;}
 export const peopleSection=(type='leadership')=>{

@@ -111,7 +111,7 @@ body .compact-certifications{background:transparent;border:0;padding-block:18px}
 .compact-certifications .cert-track{background:#f2f7f8;border-block:1px solid #dfe9eb;padding-block:10px}
 @media(max-width:600px){.compact-certifications .cert-ribbon-heading h2{font-size:9px;letter-spacing:.8px}.compact-certifications .cert-track{padding-block:8px}}
 /* People-focused photography, with the full hero team visible. */
-body[data-route='/'] .hero-photo{align-self:center;min-height:0;aspect-ratio:3/2;height:auto;overflow:hidden}
+body[data-route='/'] .hero-photo{align-self:center;min-height:0;aspect-ratio:2/1;height:auto;overflow:hidden}
 body[data-route='/'] .hero-photo>img{height:100%;width:100%;object-fit:cover;object-position:center}
 body[data-route='/'] .hero-photo>img.scroll-depth-photo{scale:1;translate:none}
 .workforce-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;padding-bottom:var(--section-space,64px)}
@@ -189,3 +189,5 @@ body[data-route='/services/contract-staffing'] .pill{transition:background-color
 @media(max-width:760px){.sector-front .sector-photo{height:190px}}
 /* These official wordmarks are white; give them contrast without recolouring assets. */
 .client-logo-stage:has(img[src$='/ignou.png']),.client-logo-stage:has(img[src$='/beml.png']){background:#173b4b}
+
+.service-photo-section img[src$="/workforce-recruitment.jpeg"]{aspect-ratio:2/1}

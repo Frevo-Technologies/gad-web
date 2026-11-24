@@ -7,7 +7,7 @@ test('department cards show approved contacts with keyboard, hover and tap',asyn
  await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/about/our-team');
  await expect(page.locator('.department-card')).toHaveCount(5);
  await expect(page.locator('.department-title')).toHaveText(['Tender','HR','Compliance','Finance & Account Section','HRMS']);
- await expect(page.locator('.department-person')).toHaveCount(22);
+ await expect(page.locator('.department-person')).toHaveCount(20);
  for(const row of departmentManagers){
   const card=page.locator('.department-card').filter({has:page.getByText(row.department,{exact:true})});
   await expect(card.locator('.department-title')).toHaveText(row.department);
