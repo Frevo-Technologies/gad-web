@@ -8,6 +8,10 @@ test('department cards show approved contacts with keyboard, hover and tap',asyn
  await expect(page.locator('.department-card')).toHaveCount(5);
  await expect(page.locator('.department-title')).toHaveText(['Tender','HR','Compliance','Finance & Account Section','HRMS']);
  await expect(page.locator('.department-person')).toHaveCount(20);
+ await expect(page.locator('.department-cards')).not.toContainText('Harshit Yadav');
+ await expect(page.locator('.department-cards')).not.toContainText('Aarzoo Ahmed');
+ await expect(page.locator('.department-card-shell').nth(0).locator('.department-back')).toContainText('Ritu Rawat');
+ await expect(page.locator('.department-card-shell').nth(0).locator('.department-back')).toContainText('Jr. Tender Executive');
  for(const row of departmentManagers){
   const card=page.locator('.department-card').filter({has:page.getByText(row.department,{exact:true})});
   await expect(card.locator('.department-title')).toHaveText(row.department);

@@ -127,7 +127,7 @@ body[data-route='/'] .hero-photo>img.scroll-depth-photo{scale:1;translate:none}
 @media(max-width:760px){.service-photo-section{grid-template-columns:1fr;gap:22px}.service-photo-section h2{font-size:29px}}
 
 /* Reference treatment: workplace photography across the entire hero with a charcoal fade. */
-html[data-theme] body[data-route='/'] .home-hero{background-color:#171b1d;background-image:linear-gradient(90deg,rgba(15,19,22,.94) 0%,rgba(15,19,22,.82) 38%,rgba(15,19,22,.46) 72%,rgba(15,19,22,.32) 100%),url('/assets/hero-office-background.jpg');background-size:cover;background-position:center;background-repeat:no-repeat}
+html[data-theme] body[data-route='/'] .home-hero{background-color:#171b1d;background-image:linear-gradient(90deg,rgba(15,19,22,.94) 0%,rgba(15,19,22,.82) 38%,rgba(15,19,22,.46) 72%,rgba(15,19,22,.32) 100%);background-size:cover;background-position:center;background-repeat:no-repeat}
 html[data-theme] .home-hero .hero-copy{background:transparent}
 html[data-theme] .home-hero .hero-copy h1{color:#fff}
 html[data-theme] .home-hero .hero-copy h1 em{color:#c4f0e9}
@@ -136,7 +136,7 @@ html[data-theme] .home-hero .hero-copy .eyebrow,html[data-theme] .home-hero .her
 html[data-theme] .home-hero .hero-copy .eyebrow:before,html[data-theme] .home-hero .hero-tags i{background:#b4d7cf}
 html[data-theme] .home-hero .hero-secondary{border-color:#a8bab5}
 html[data-theme] .home-hero .hero-side{color:#d7e6e1}
-@media(max-width:760px){html[data-theme] body[data-route='/'] .home-hero{background-image:linear-gradient(180deg,rgba(15,19,22,.9) 0%,rgba(15,19,22,.78) 45%,rgba(15,19,22,.45) 100%),url('/assets/hero-office-background.jpg');background-position:60% center}}
+@media(max-width:760px){html[data-theme] body[data-route='/'] .home-hero{background-image:linear-gradient(180deg,rgba(15,19,22,.9) 0%,rgba(15,19,22,.78) 45%,rgba(15,19,22,.45) 100%);background-position:60% center}}
 .service-row{transition:background-color .3s,color .3s,padding .3s}
 html[data-theme] .service-row:is(:hover,:focus-visible){background:#087577;color:#fff}
 html[data-theme] .service-row:is(:hover,:focus-visible) :is(h3,p,.icon,.row-number,.round-arrow){color:#fff}
@@ -191,3 +191,7 @@ body[data-route='/services/contract-staffing'] .pill{transition:background-color
 .client-logo-stage:has(img[src$='/ignou.png']),.client-logo-stage:has(img[src$='/beml.png']){background:#173b4b}
 
 .service-photo-section img[src$="/workforce-recruitment.jpeg"]{aspect-ratio:2/1}
+
+/* Keep the supplied 1600 by 800 recruitment image fully visible. */
+body[data-route="/"] .hero-photo>img{object-fit:contain;object-position:center;background:#edf4f6}
+.service-photo-section img{aspect-ratio:2/1;object-fit:contain;background:#edf4f6}
